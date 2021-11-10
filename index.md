@@ -3,9 +3,8 @@ The **VoiceNET Library** makes it easy to integrate Voice Command Control functi
 
 <div align="center">
 
-![VoiceNET Library](logo.png)
+<img src="https://raw.githubusercontent.com/nhannt201/VoiceNET.Library/gh-pages/logo.png" alt="VoiceNET Library" />
 
-***VoiceNET Library***
  
 </div>
 
@@ -15,9 +14,9 @@ Using ML.NET and Spectrogram libraries, the **VoiceNET library** works by conver
 
 <div align="center">
 
-![How the VoiceNET Library works](howitworks.png)
 
-***How the VoiceNET Library works***
+ <img src="https://raw.githubusercontent.com/nhannt201/VoiceNET.Library/gh-pages/howitworks.png" alt="How the VoiceNET Library works" />
+
 
 </div>
 
