@@ -8,3 +8,6 @@
 MicBuilder Video Tutorial
 
 </div>
+
+Voice Command Control in real-time. Applying the VoiceNET Library to the image library
+
