@@ -13,6 +13,17 @@ The **VoiceNET Library** makes it easy to integrate Voice Command Control functi
 
 </div>
 
+## How its work?
+Using ML.NET and Spectrogram libraries, the **VoiceNET library** works by converting your voice into a spectrogram. From there, proceed to use the Image Classification function in the ML.NET library to mark the label.
+
+<div align="center">
+
+![](https://i.imgur.com/5VH73ri.png)
+
+How the VoiceNET Library works
+
+</div>
+
 ## Features
 
 - Voice Command Control in real time.
@@ -28,16 +39,6 @@ The **VoiceNET Library** makes it easy to integrate Voice Command Control functi
 - It takes a long time to create a Model for the library
 - The time it takes to load the model into the program can be slow.
 - There's still an error rate when labeling recognition.
-## How its work?
-Using ML.NET and Spectrogram libraries, the **VoiceNET library** works by converting your voice into a spectrogram. From there, proceed to use the Image Classification function in the ML.NET library to mark the label.
-
-<div align="center">
-
-![](https://i.imgur.com/5VH73ri.png)
-
-How the VoiceNET Library works
-
-</div>
 
 ## Installation
 
