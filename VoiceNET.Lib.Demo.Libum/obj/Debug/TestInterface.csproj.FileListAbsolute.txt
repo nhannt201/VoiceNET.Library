@@ -1,0 +1,13 @@
+D:\LAPTRINH\C#\TestInterface\TestInterface\bin\Debug\TestInterface.exe.config
+D:\LAPTRINH\C#\TestInterface\TestInterface\bin\Debug\TestInterface.exe
+D:\LAPTRINH\C#\TestInterface\TestInterface\bin\Debug\TestInterface.pdb
+D:\LAPTRINH\C#\TestInterface\TestInterface\obj\Debug\TestInterface.csproj.AssemblyReference.cache
+D:\LAPTRINH\C#\TestInterface\TestInterface\obj\Debug\TestInterface.Properties.Resources.resources
+D:\LAPTRINH\C#\TestInterface\TestInterface\obj\Debug\TestInterface.csproj.GenerateResource.cache
+D:\LAPTRINH\C#\TestInterface\TestInterface\obj\Debug\TestInterface.csproj.CoreCompileInputs.cache
+D:\LAPTRINH\C#\TestInterface\TestInterface\obj\Debug\TestInterface.exe
+D:\LAPTRINH\C#\TestInterface\TestInterface\obj\Debug\TestInterface.pdb
+D:\LAPTRINH\C#\TestInterface\TestInterface\obj\Debug\TestInterface.MsgBox.resources
+D:\LAPTRINH\C#\TestInterface\TestInterface\obj\Debug\TestInterface.frmShow.resources
+D:\LAPTRINH\C#\TestInterface\TestInterface\obj\Debug\TestInterface.HomeAlbum.resources
+D:\LAPTRINH\C#\TestInterface\TestInterface\obj\Debug\TestInterface.MDIHome.resources

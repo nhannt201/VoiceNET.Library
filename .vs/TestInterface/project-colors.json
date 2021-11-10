@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "fbeb66be-9a38-42a6-a452-4af5af9d11bd": {
+      "ProjectGuid": "fbeb66be-9a38-42a6-a452-4af5af9d11bd",
+      "DisplayName": "Libum",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "48dcc142-14d4-46aa-980b-1fdcc0c52993": {
+      "ProjectGuid": "48dcc142-14d4-46aa-980b-1fdcc0c52993",
+      "DisplayName": "VoiceNET.Lib",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
