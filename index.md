@@ -5,11 +5,11 @@ The **VoiceNET Library** makes it easy to integrate Voice Command Control functi
 
 ![](https://i.imgur.com/9FTHK3r.png)
 
-***VoiceNET Library***
 
 </div>
 
 ## How its work?
+
 Using ML.NET and Spectrogram libraries, the **VoiceNET library** works by converting your voice into a spectrogram. From there, proceed to use the Image Classification function in the ML.NET library to mark the label.
 
 <div align="center">
@@ -31,6 +31,7 @@ How the VoiceNET Library works
 - It can be used both online and offline.
 - It can be used for any communication language in the world.
 - It's free.
+
 ## Disadvantage
 - It takes a long time to create a Model for the library
 - The time it takes to load the model into the program can be slow.
@@ -47,6 +48,7 @@ or from the NuGet Package Manager:
 Install-Package VoiceNET.Library
 ```
 ## Quickstart
+
 ### Real-time ###
 Drag and drop into the Windows Forms interface:
 - **Picturebox:** pbSpectrogram and picTake with Width=400
@@ -137,7 +139,9 @@ Use the included [MicBuilder](https://github.com/nhannt201/VoiceNET.Library/tree
 * [Microsoft.ML.Vision](https://www.nuget.org/packages/Microsoft.ML.Vision/)
 * [NAudio](https://www.nuget.org/packages/NAudio/)
 * [SciSharp.TensorFlow.Redist](https://www.nuget.org/packages/SciSharp.TensorFlow.Redist/)
+
 ## LICENSE
+
 **MIT LICENSE**
 * [Spectrogram](https://github.com/swharden/Spectrogram/) - is a .NET library for creating spectrograms from pre-recorded signals or live audio from the sound card.
 * [ML.NET](https://github.com/dotnet/machinelearning) - is a cross-platform open-source machine learning (ML) framework for .NET.
