@@ -60,13 +60,21 @@ Drag and drop into the Windows Forms interface:
 
 In Form_Load
 ```cs
+
  VBuilder.getDevice(cbDevice);
+ 
  VBuilder.setVolume(80);
- VBuilder.ModelPath("<your_model_path>"");
+ 
+ VBuilder.ModelPath("<your_model_path>");
+ 
  if(VBuilder.loadModel())
+ 
     //do something after Load Model
+    
  else
+ 
    //do something if fail
+   
 ```
 cbDevice_SelectedIndexChanged
 ```cs
@@ -76,23 +84,35 @@ Create two private void: StartListening() and DisposeImage().
  
 StartListening() 
 ```cs
-pbSpectrogram.Image?.Dispose();
-pbSpectrogram.Image = null;
+
+DisposeImage();
+
 VBuilder.StartListening( cbDevice);
+
 ```
 DisposeImage()
 ```cs
+
 pbSpectrogram.Image?.Dispose();
+
+pbSpectrogram.Image = null;
+
 ```
 tmDisposeRam_Tick
 ```cs
+
 DisposeImage();
+
 pbSpectrogram.Image = VBuilder.ListenTimer(pbSpectrogram.Width);
+
 ```
 tmLisener_Tick
 ```cs
+
   if(VBuilder.requestDisposeListening)
+  
             {
+            
                 picTake.Image = VBuilder.getImageTaken(pbSpectrogram);
 
                 lbResult.Text = VBuilder.Result();
@@ -100,9 +120,15 @@ tmLisener_Tick
                 StartListening(); //Renew Lisener
 
                 VBuilder.requestDisposeListening = false;
-            } else
+                
+            }
+            
+            else
+            
             {
+            
                 VBuilder.reduceNoiseAndCapture(pbSpectrogram);
+                
             }
 
 ```
@@ -113,24 +139,39 @@ Drag and drop into the Windows Forms interface:
 
 Form_Load
 ```cs
-VBuilder.ModelPath("<your_model_path>"");
+
+VBuilder.ModelPath("<your_model_path>");
+
  if(VBuilder.loadModel())
+ 
     //do something after Load Model
+    
  else
+ 
    //do something if fail
+   
 ```
 btnRecord_Click
 ```cs
- VBuilder.Record();
+
+VBuilder.Record();
+
 btnStop.Enabled = true;
+
 btnRecord.Enabled = false;
+
 ```
 btnStop
 ```cs
+
 VBuilder.Stop();
+
 lbResult.Text = VBuilder.Result(true);
+
 btnRecord.Enabled = true;
+
 btnStop.Enabled = false;
+
 ```
 ## How to create a Model?
 Use the included [MicBuilder](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.MicBuilder/README.MD) program to build an MLModel.zip file for your Dataset.
