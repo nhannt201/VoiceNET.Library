@@ -520,15 +520,15 @@
           "lib/netstandard2.0/TensorFlow.NET.dll": {}
         }
       },
-      "VoiceNET.Library/1.0.2.1": {
+      "VoiceNET.Library/1.0.2.3": {
         "type": "package",
         "dependencies": {
           "FftSharp": "1.0.8",
-          "Microsoft.ML": "1.5.2",
-          "Microsoft.ML.ImageAnalytics": "1.5.2",
-          "Microsoft.ML.Vision": "1.5.2",
+          "Microsoft.ML": "[1.5.2, 1.6.0]",
+          "Microsoft.ML.ImageAnalytics": "[1.5.2, 1.6.0]",
+          "Microsoft.ML.Vision": "[1.5.2, 1.6.0]",
           "NAudio": "2.0.0",
-          "SciSharp.TensorFlow.Redist": "1.14.0"
+          "SciSharp.TensorFlow.Redist": "[1.14.0]"
         },
         "compile": {
           "lib/netstandard2.0/VoiceNET.Lib.dll": {}
@@ -978,15 +978,15 @@
           "lib/netstandard2.0/TensorFlow.NET.dll": {}
         }
       },
-      "VoiceNET.Library/1.0.2.1": {
+      "VoiceNET.Library/1.0.2.3": {
         "type": "package",
         "dependencies": {
           "FftSharp": "1.0.8",
-          "Microsoft.ML": "1.5.2",
-          "Microsoft.ML.ImageAnalytics": "1.5.2",
-          "Microsoft.ML.Vision": "1.5.2",
+          "Microsoft.ML": "[1.5.2, 1.6.0]",
+          "Microsoft.ML.ImageAnalytics": "[1.5.2, 1.6.0]",
+          "Microsoft.ML.Vision": "[1.5.2, 1.6.0]",
           "NAudio": "2.0.0",
-          "SciSharp.TensorFlow.Redist": "1.14.0"
+          "SciSharp.TensorFlow.Redist": "[1.14.0]"
         },
         "compile": {
           "lib/netstandard2.0/VoiceNET.Lib.dll": {}
@@ -1445,15 +1445,15 @@
           "lib/netstandard2.0/TensorFlow.NET.dll": {}
         }
       },
-      "VoiceNET.Library/1.0.2.1": {
+      "VoiceNET.Library/1.0.2.3": {
         "type": "package",
         "dependencies": {
           "FftSharp": "1.0.8",
-          "Microsoft.ML": "1.5.2",
-          "Microsoft.ML.ImageAnalytics": "1.5.2",
-          "Microsoft.ML.Vision": "1.5.2",
+          "Microsoft.ML": "[1.5.2, 1.6.0]",
+          "Microsoft.ML.ImageAnalytics": "[1.5.2, 1.6.0]",
+          "Microsoft.ML.Vision": "[1.5.2, 1.6.0]",
           "NAudio": "2.0.0",
-          "SciSharp.TensorFlow.Redist": "1.14.0"
+          "SciSharp.TensorFlow.Redist": "[1.14.0]"
         },
         "compile": {
           "lib/netstandard2.0/VoiceNET.Lib.dll": {}
@@ -1909,15 +1909,15 @@
           "lib/netstandard2.0/TensorFlow.NET.dll": {}
         }
       },
-      "VoiceNET.Library/1.0.2.1": {
+      "VoiceNET.Library/1.0.2.3": {
         "type": "package",
         "dependencies": {
           "FftSharp": "1.0.8",
-          "Microsoft.ML": "1.5.2",
-          "Microsoft.ML.ImageAnalytics": "1.5.2",
-          "Microsoft.ML.Vision": "1.5.2",
+          "Microsoft.ML": "[1.5.2, 1.6.0]",
+          "Microsoft.ML.ImageAnalytics": "[1.5.2, 1.6.0]",
+          "Microsoft.ML.Vision": "[1.5.2, 1.6.0]",
           "NAudio": "2.0.0",
-          "SciSharp.TensorFlow.Redist": "1.14.0"
+          "SciSharp.TensorFlow.Redist": "[1.14.0]"
         },
         "compile": {
           "lib/netstandard2.0/VoiceNET.Lib.dll": {}
@@ -2751,10 +2751,10 @@
         "tensorflow.net.nuspec"
       ]
     },
-    "VoiceNET.Library/1.0.2.1": {
-      "sha512": "mVepUR1KcmPPWo964REflcTIEDhP/3IAB5Zs5sgT3PkIYsOmz8mbQxszJXukRkZosQyufmFfxlXCMjxFniMfpg==",
+    "VoiceNET.Library/1.0.2.3": {
+      "sha512": "UXV7IueEXnKFBNDEVEv8zKjz/kmTvKrsbEEulYpFtpB7pZAFxb+Xmhpk7UvmLVPRjyr9G/Z1LRwrAbLt8M6QEA==",
       "type": "package",
-      "path": "voicenet.library/1.0.2.1",
+      "path": "voicenet.library/1.0.2.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2764,7 +2764,7 @@
         "content/voicenet.ico",
         "contentFiles/any/netstandard2.0/voicenet.ico",
         "lib/netstandard2.0/VoiceNET.Lib.dll",
-        "voicenet.library.1.0.2.1.nupkg.sha512",
+        "voicenet.library.1.0.2.3.nupkg.sha512",
         "voicenet.library.nuspec"
       ]
     }
@@ -2777,7 +2777,7 @@
       "Microsoft.ML.Vision >= 1.5.2",
       "NAudio >= 2.0.0",
       "SciSharp.TensorFlow.Redist >= 1.14.0",
-      "VoiceNET.Library >= 1.0.2.1"
+      "VoiceNET.Library >= 1.0.2.3"
     ]
   },
   "packageFolders": {
@@ -2839,7 +2839,7 @@
           },
           "VoiceNET.Library": {
             "target": "Package",
-            "version": "[1.0.2.1, )"
+            "version": "[1.0.2.3, )"
           }
         }
       }
