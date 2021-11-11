@@ -1,5 +1,7 @@
 ## Introduce
-The **VoiceNET Library** makes it easy to integrate Voice Command Control functionality into your programs based on Label Prediction. Voice Command Control commands in the library are fixed based on a pre-assigned label. This is a research project from the FPT Edu Research Festival 2021 contest.
+The **VoiceNET Library** makes it easy to integrate Voice Command Control functionality into your programs based on Label Prediction. Voice Command Control commands in the library are fixed based on a pre-assigned label.
+ 
+This is a research project from the FPT Edu Research Festival 2021 contest. 
 
 <div align="center">
 
@@ -71,7 +73,8 @@ cbDevice_SelectedIndexChanged
 StartListening();
 ```
 Create two private void: StartListening() and DisposeImage().
-StartListening()
+ 
+StartListening() 
 ```cs
 pbSpectrogram.Image?.Dispose();
 pbSpectrogram.Image = null;
