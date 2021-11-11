@@ -66,6 +66,8 @@ Install-Package VoiceNET.Library
 
 </div>
 
+### How to make a demo in real-time? ###
+
 Drag and drop into the Windows Forms interface:
 - **Picturebox:** pbSpectrogram and picTake with Width=400
 - **Combobox:** cbDevice
@@ -87,6 +89,7 @@ cbDevice_SelectedIndexChanged
 StartListening();
 ```
 Create two private void: StartListening() and DisposeImage().
+ 
 StartListening()
 ```cs
 pbSpectrogram.Image?.Dispose();
@@ -129,6 +132,8 @@ tmLisener_Tick
 ***Example of command label recognition by recording***
 
 </div>
+
+### How to make a demo in recording? ###
 
 Drag and drop into the Windows Forms interface:
 - **Button**: btnRecord, btnStop
