@@ -16,64 +16,76 @@ namespace VoiceNET.Lib.MicBuilder
         public frmConfig()
         {
             InitializeComponent();
-            txtPathFolder.Text = VBuilder.getPathDataset();
-            hsMicCont.Value = VBuilder.getMicTime();
-            hsMinValue.Value = VBuilder.getMinVolume();
+
+            txtPathFolder.Text = VSpeech.getPathDataset();
+
+            hsMicCont.Value = VSpeech.getMicTime();
+
+            hsMinValue.Value = VSpeech.getMinVolume();
+
             lbMinVolume.Text = hsMinValue.Value.ToString() + "%";
+
             lbTimeCont.Text = hsMicCont.Value.ToString() + "ms";
+
         }
 
         private void hsMinValue_Scroll(object sender, ScrollEventArgs e)
         {
+
             lbMinVolume.Text = hsMinValue.Value.ToString() + "%";
-            VBuilder.setMinVolume(hsMinValue.Value);
+
+            VSpeech.setMinVolume(hsMinValue.Value);
 
         }
 
         private void hsMicCont_Scroll(object sender, ScrollEventArgs e)
         {
+
             lbTimeCont.Text = hsMicCont.Value.ToString() + "ms";
-            VBuilder.setMicTime(hsMicCont.Value);
-        }
 
-
-        private void frmConfig_Load(object sender, EventArgs e)
-        {
+            VSpeech.setMicTime(hsMicCont.Value);
 
         }
+
+
+        private void frmConfig_Load(object sender, EventArgs e) { }
 
         private void btnChooseFolder_Click(object sender, EventArgs e)
         {
             using (var fbd = new FolderBrowserDialog())
+
             {
                 DialogResult result = fbd.ShowDialog();
 
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                 {
+
                     txtPathFolder.Text =(fbd.SelectedPath);
-                    VBuilder.setPathDataset(txtPathFolder.Text);
+
+                    VSpeech.setPathDataset(txtPathFolder.Text);
 
                 }
             }
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            closeFrm();
-
-        }
+        private void btnClose_Click(object sender, EventArgs e) => closeFrm();
 
         private void closeFrm()
         {
             if (String.IsNullOrEmpty(txtPathFolder.Text))
             {
+
                 MessageBox.Show("Please choose a folder for the dataset!", "MessageBox");
+
                 return;
+
             }
 
-            VBuilder.setPathDataset(txtPathFolder.Text);
-            VBuilder.setMinVolume(hsMinValue.Value);
-            VBuilder.setMicTime(hsMicCont.Value);
+            VSpeech.setPathDataset(txtPathFolder.Text);
+
+            VSpeech.setMinVolume(hsMinValue.Value);
+
+            VSpeech.setMicTime(hsMicCont.Value);
 
             Hide();
         }

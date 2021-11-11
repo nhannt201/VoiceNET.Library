@@ -206,7 +206,6 @@
             this.Name = "LibumListener";
             this.ShowIcon = false;
             this.Text = "Libum Lisener";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbSpectrogram)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

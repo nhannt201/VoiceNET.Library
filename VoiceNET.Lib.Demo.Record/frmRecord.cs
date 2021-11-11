@@ -13,23 +13,28 @@ namespace VoiceNET.Lib.RecordDemo
 {
     public partial class frmRecordDemo : Form
     {
-        public frmRecordDemo()
-        {
-            InitializeComponent();
-        }
+        public frmRecordDemo() => InitializeComponent();
 
         private void btnRecord_Click(object sender, EventArgs e)
         {
+
             VBuilder.Record();
+
             btnStop.Enabled = true;
+
             btnRecord.Enabled = false;
+
         }
 
         private void frmRecordDemo_Load(object sender, EventArgs e)
         {
+
             VBuilder.ModelPath(Path.GetFullPath("MLModel.zip"));
-            this.Enabled = false;
+
+            Enabled = false;
+
             lbResult.Text = "Loading Model...";
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -37,18 +42,26 @@ namespace VoiceNET.Lib.RecordDemo
            
             if (VBuilder.loadModel())
             {
-               this.Enabled = true;
+                Enabled = true;
+
                 lbResult.Text = "...";
+
                 timer1.Stop();
+
             }
         }
 
         private void btnStop_Click(object sender, EventArgs e)
         {
+
             VBuilder.Stop();
+
             lbResult.Text = VBuilder.Result(true);
+
             btnRecord.Enabled = true;
+
             btnStop.Enabled = false;
+
         }
     }
 }

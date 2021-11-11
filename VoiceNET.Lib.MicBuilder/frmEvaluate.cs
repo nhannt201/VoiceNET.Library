@@ -22,33 +22,33 @@ namespace VoiceNET.Lib
             InitializeComponent();
             
             VBuilder.getDevice(cbDevice);
+
             VBuilder.setVolume(80);
 
             lbValueMic.Text = VBuilder.getVolume().ToString();
+
             micValue.Value = VBuilder.getVolume();
-            micValue.LargeChange = 1; //Cho phep nguoi dung chon den maxium
+
+            micValue.LargeChange = 1; 
 
         }
 
-        private void Evaluate_Load(object sender, EventArgs e) {
-
-            VBuilder.ModelPath(VBuilder.getModelFilePath());
-
-        }
+        private void Evaluate_Load(object sender, EventArgs e) => VBuilder.ModelPath(VBuilder.getModelFilePath());
         private void cbDevice_SelectedIndexChanged(object sender, EventArgs e) => StartListening();
-
 
         private void StartListening()
         {
-            pbSpectrogram.Image?.Dispose();
-
-            pbSpectrogram.Image = null;
+            DisposeImage();
 
             VBuilder.StartListening( cbDevice);
           
         }
         public void DisposeImage() {
+
             pbSpectrogram.Image?.Dispose();
+
+            pbSpectrogram.Image = null;
+
         }
 
         private void tmDisposeRam_Tick(object sender, EventArgs e)
@@ -76,9 +76,12 @@ namespace VoiceNET.Lib
                 StartListening(); //Renew Lisener
 
                 VBuilder.requestDisposeListening = false;
+
             } else
             {
+
                 VBuilder.reduceNoiseAndCapture(pbSpectrogram);
+
             }
 
             
@@ -88,6 +91,7 @@ namespace VoiceNET.Lib
         {
 
             VBuilder.setVolume ( micValue.Value);
+
             lbValueMic.Text = micValue.Value.ToString();
         }
 
@@ -95,7 +99,9 @@ namespace VoiceNET.Lib
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
+
                 VBuilder.isTrainCompleted();
+
             }
         }
 
@@ -104,9 +110,13 @@ namespace VoiceNET.Lib
             if(VBuilder.loadModel())
             {
                 pnLoad.Visible = false;
+
                 tmDisposeRam.Start();
+
                 tmLisener.Start();
+
                 this.Enabled = true;
+
                 tmWaitLoad.Stop();
             }
         }

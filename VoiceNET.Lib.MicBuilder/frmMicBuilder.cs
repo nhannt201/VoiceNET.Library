@@ -13,11 +13,16 @@ namespace VoiceNET.Lib.MicBuilder
         public frmMicBuilder()
         {
             InitializeComponent();
+
             VBuilder.getDevice(cbDevice);
+
             VBuilder.setVolume(80);
+
             lbValueMic.Text = VBuilder.getVolume().ToString();
+
             micValue.Value = VBuilder.getVolume();
-            micValue.LargeChange = 1; //Cho phep nguoi dung chon den maxium
+
+            micValue.LargeChange = 1; //Allow setting full microphone volume
 
 
         }
@@ -31,8 +36,9 @@ namespace VoiceNET.Lib.MicBuilder
 
         private void StartListening()
         {
-            pbSpectrogram.Image?.Dispose();
-            pbSpectrogram.Image = null;
+
+            DisposeImage();
+
             VBuilder.StartListening(cbDevice);
 
         }
@@ -40,17 +46,26 @@ namespace VoiceNET.Lib.MicBuilder
 
         public void DisposeImage()
         {
+
             pbSpectrogram.Image?.Dispose();
+
+            pbSpectrogram.Image = null;
+
         }
 
         private void tmDisposeRam_Tick(object sender, EventArgs e)
         {
             if(!VBuilder.isStartTrain())
             {
+
                 DisposeImage();
+
                 pbSpectrogram.Image = VBuilder.ListenTimer(pbSpectrogram.Width);
+
                 pbAmplitude.Value = VBuilder.getAmplitude;
+
                 toolStripStatusPercent.Text = VBuilder.getAmplitude.ToString();
+
             }    
         }
 
@@ -59,8 +74,10 @@ namespace VoiceNET.Lib.MicBuilder
         private void tmLisener_Tick(object sender, EventArgs e)
         {
             if (!VBuilder.isStartTrain())
+
             {
                 if (VBuilder.requestDisposeListening)
+
                 {
                     picTake.Image = VBuilder.getImageTaken(pbSpectrogram);
 
@@ -68,9 +85,13 @@ namespace VoiceNET.Lib.MicBuilder
 
                     VBuilder.requestDisposeListening = false;
                 }
+
                 else
+
                 {
+
                     VBuilder.reduceNoiseAndCapture(pbSpectrogram, true);
+
                 }
             }
 
@@ -116,13 +137,21 @@ namespace VoiceNET.Lib.MicBuilder
         private void btnTrain_Click(object sender, EventArgs e)
         {
             if (VBuilder.isAlreadyTrainData())
+
             {
+
                 VBuilder.startTrainData();
+
                 new frmTrain().Show();
+
             }
+
             else
+
             {
+
                 MessageBox.Show("Not ready to start data Train yet. Review:\n-Set up dataset folder\n- Make sure there are at least 2 sub - folder labels and each sub - folder label has at least 2 images.", "MessageBox");
+            
             }
             
         }

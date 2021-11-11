@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="VoiceNET.Library">
+      <Version>1.0.2.1</Version>
+    </PackageReference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,7 +53,6 @@
     <PackageReference Include="Microsoft.ML.Vision" Version="1.5.2" />
     <PackageReference Include="NAudio" Version="2.0.0" />
     <PackageReference Include="SciSharp.TensorFlow.Redist" Version="1.14.0" />
-    <PackageReference Include="VoiceNET.Library" Version="1.0.1.1" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="frmRecord.cs">

@@ -18,59 +18,69 @@ namespace Libum
 {
     public partial class LibumListener : Form
     {
-         string returnLabel = "";
+        string returnLabel = "";
         public LibumListener()
         {
             InitializeComponent();
             
             VBuilder.getDevice(cbDevice);
+
             VBuilder.setVolume(80);
+
             lbValueMic.Text = VBuilder.getVolume().ToString();
+
             micValue.Value = VBuilder.getVolume();
-            micValue.LargeChange = 1; //Cho phep nguoi dung chon den maxium
+
+            micValue.LargeChange = 1; //Allow Setting Microphone Volume to maxium
 
         }
 
-        private void Form1_Load(object sender, EventArgs e) {
-
-        }
         private void cbDevice_SelectedIndexChanged(object sender, EventArgs e) => StartListening();
 
 
         private void StartListening()
         {
-            pbSpectrogram.Image?.Dispose();
-            pbSpectrogram.Image = null;
+
+            DisposeImage();
+
             VBuilder.StartListening( cbDevice);
           
         }
         public void DisposeImage() {
+
             pbSpectrogram.Image?.Dispose();
+
+            pbSpectrogram.Image = null;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //Giai phong bo nho
+
             DisposeImage();
+
             pbSpectrogram.Image = VBuilder.ListenTimer(pbSpectrogram.Width);
+
             pbAmplitude.Value = VBuilder.getAmplitude;
+
             toolStripStatusPercent.Text = VBuilder.getAmplitude.ToString();
         }
 
 
         private void checkReturn()
         {
-            if (Libum.Properties.Settings.Default.frmNow == "home")
+            if (Properties.Settings.Default.frmNow == "home")
             {
                 var HomeAl = Application.OpenForms.OfType<HomeAlbum>().Single();
+
                 HomeAl.setNum(returnLabel);
             }
-            if ( Libum.Properties.Settings.Default.frmNow == "show")
+            if (Properties.Settings.Default.frmNow == "show")
             {
                 var frmShow = Application.OpenForms.OfType<frmShow>().Single();
+
                 frmShow.setAction(returnLabel);
             }
-            // MessageBox.Show("endCheckReturn");
+     
         }
 
  
@@ -102,6 +112,7 @@ namespace Libum
         {
 
             VBuilder.setVolume ( micValue.Value);
+
             lbValueMic.Text = micValue.Value.ToString();
         }
 
