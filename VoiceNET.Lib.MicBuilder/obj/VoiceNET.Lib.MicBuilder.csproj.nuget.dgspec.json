@@ -38,10 +38,6 @@
               "target": "Package",
               "version": "[1.0.8, )"
             },
-            "FftSharp": {
-              "target": "Package",
-              "version": "[1.0.8, )"
-            },
             "Microsoft.ML": {
               "target": "Package",
               "version": "[1.5.2, )"
@@ -64,7 +60,7 @@
             },
             "VoiceNET.Library": {
               "target": "Package",
-              "version": "[1.0.1, )"
+              "version": "[1.0.1.1, )"
             }
           }
         }
