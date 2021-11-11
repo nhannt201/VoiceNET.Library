@@ -1,9 +1,11 @@
 # VoiceNET Library
-## Free Voice Command Control Library
 
 [![Nuget](https://img.shields.io/nuget/v/VoiceNET.Library?label=NuGet&logo=nuget)](https://www.nuget.org/packages/VoiceNET.Library/)
+## Free Voice Command Control Library
 ## Introduce
-The **VoiceNET Library** makes it easy to integrate Voice Command Control functionality into your programs based on Label Prediction. Voice Command Control commands in the library are fixed based on a pre-assigned label. This is a research project from the FPT Edu Research Festival 2021 contest.
+**VoiceNET Library** makes it easy and fast to create Voice Command Control functionality through Label Prediction. It helps develop software voice control in real-time. It free supports online and offline use. This is a community development project to help people access voice recognition technology more easily.
+
+It's a research project from the FPT Edu Research Festival 2021 contest.
 
 <div align="center">
 
@@ -52,6 +54,18 @@ Install-Package VoiceNET.Library
 ```
 ## Quickstart
 ### Real-time ###
+
+
+#### Example ####
+
+<div align="center">
+
+![](https://raw.githubusercontent.com/nhannt201/VoiceNET.Library/gh-pages/VoiceNET_Library__Demo_Product__Libum.gif)
+
+***A real-time voice-controlled image gallery***
+
+</div>
+
 Drag and drop into the Windows Forms interface:
 - **Picturebox:** pbSpectrogram and picTake with Width=400
 - **Combobox:** cbDevice
@@ -106,6 +120,16 @@ tmLisener_Tick
 
 ```
 ### Recording ###
+#### Example ####
+
+<div align="center">
+
+![](https://raw.githubusercontent.com/nhannt201/VoiceNET.Library/gh-pages/VoiceNET_Library__Demo_Product__Recording.gif)
+
+***Example of command label recognition by recording***
+
+</div>
+
 Drag and drop into the Windows Forms interface:
 - **Button**: btnRecord, btnStop
 - **Label**: lbResult
@@ -133,6 +157,15 @@ btnStop.Enabled = false;
 ```
 ## How to create a Model?
 Use the included [MicBuilder](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.MicBuilder/README.MD) program to build an MLModel.zip file for your Dataset.
+
+
+<div align="center">
+
+![](https://raw.githubusercontent.com/nhannt201/VoiceNET.Library/gh-pages/VoiceNET_Library__MicBuilder__Create_a_Model.gif)
+
+***MicBuilder Model Builder***
+
+</div>
 
 ## Resources
 * [FftSharp](https://www.nuget.org/packages/FftSharp/)
