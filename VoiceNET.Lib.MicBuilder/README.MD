@@ -29,6 +29,9 @@ Click ***"Save & Close"***
 
 ***Nota bene:*** In order to create a diverse dataset and reduce the rate of misidentification, you should say it 10 times at each microphone volume level from 20% to 90%. On the MicBuilder interface, adjust the Microphone Volume.
 
+***Follow below table:***
+![](https://raw.githubusercontent.com/nhannt201/VoiceNET.Library/gh-pages/note.png)
+
 - Start speaking content related to the entered label name until you see the captured image in the MicBuilder interface.  Then, click "Add Image Label". Continue doing this until you have the quantity you want. Add as much data as possible and each label should have an equal number of times.
 
 When finished, click ***"x"*** to close the window
