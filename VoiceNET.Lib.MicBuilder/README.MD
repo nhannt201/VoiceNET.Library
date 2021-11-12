@@ -27,7 +27,7 @@ Click ***"Save & Close"***
 - Click ***"Monitor"***
 - Enter Label Name: Label names must be Latin alphabet characters, written  consecutively without spaces or special characters, and  have a maximum length of 255 characters.  Example: turnoffthecomputer, call119, closethewindows.
 
-***Nota bene:*** In order to create a diverse dataset and reduce the rate of misidentification, you should say it 10 times at each microphone volume level from 20% to 90%. On the MicBuilder interface, adjust the Microphone Volume.
+***Nota bene:*** In order to create a diverse dataset and reduce the rate of misidentification, you should say it 10 times at each microphone volume level from 10% or 20% to 90%. On the MicBuilder interface, adjust the Microphone Volume.
 
 ***Follow below table:***
 ![](https://raw.githubusercontent.com/nhannt201/VoiceNET.Library/gh-pages/note.png)
