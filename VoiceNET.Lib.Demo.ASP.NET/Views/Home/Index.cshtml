@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "Recording";
+}
+<div class="panel panel-default"><center>
+      <h2>VoiceNET Library - Voice Command Control - Recording</h2>
+      <p>
+        <button type="button" class="btn btn-primary  btn-lg mt-5" id="record">Record</button>
+        <button type="button" class="btn btn-danger btn-lg mt-5" id="stopRecord" disabled>Stop</button>
+      </p>
+      <p>
+        <audio id=recordedAudio></audio>        
+      </p>
+
+      <div class="alert alert-success">
+         <h3 id="result">...</h3>
+      </div>
+  </center>
+  </div>
+  <script> 
+    navigator.mediaDevices.getUserMedia({audio:true})
+
+    .then(stream => {handlerFunction(stream)})
+
+    function handlerFunction(stream) {
+
+      rec = new MediaRecorder(stream);
+
+      rec.ondataavailable = e => {
+
+        audioChunks.push(e.data);
+
+        if (rec.state == "inactive"){
+
+          let blob = new Blob(audioChunks,{type:'audio/wav'});
+
+          sendData(blob)
+
+       //Request get label
+
+        var xhr = new XMLHttpRequest();
+
+        xhr.onload = function(e) {
+
+           if (this.readyState === 4) {
+
+              console.log("Server returned: ", e.target.responseText);
+
+              document.getElementById("result").innerHTML = "Result: " + e.target.responseText;
+
+              //Get e.target.responseText and do something
+
+           }
+        };
+
+        var fd = new FormData();
+
+        fd.append("audio", blob, "filename");
+
+        xhr.open("POST", "PostRecord", true);
+
+        xhr.send(fd);
+
+
+          }
+
+        }
+
+      }
+    
+    function sendData(data) {}
+      record.onclick = e => {
+        record.disabled = true;
+        stopRecord.disabled=false;
+        audioChunks = [];
+        rec.start();
+        }
+      stopRecord.onclick = e => {
+        record.disabled = false;
+        stop.disabled=true;
+        document.getElementById("result").innerHTML = "Loading result...";
+        rec.stop();
+        }
+  </script>
+
