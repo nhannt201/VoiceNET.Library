@@ -1,6 +1,6 @@
 # VoiceNET Library
 ## MicBuilder Model Generator
-### Vietnamese video tutorial ###
+### Video tutorial ###
 <div align="center">
 
 [![MicBuilder Video Tutorial](https://img.youtube.com/vi/4YJ2BpDv_FI/0.jpg)](https://www.youtube.com/watch?v=4YJ2BpDv_FI)
