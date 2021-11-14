@@ -3,7 +3,7 @@
 ### Vietnamese video tutorial ###
 <div align="center">
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/4YJ2BpDv_FI/0.jpg)](https://www.youtube.com/watch?v=4YJ2BpDv_FI)
+[![MicBuilder Video Tutorial](https://img.youtube.com/vi/4YJ2BpDv_FI/0.jpg)](https://www.youtube.com/watch?v=4YJ2BpDv_FI)
 
 MicBuilder Video Tutorial
 
@@ -44,3 +44,12 @@ Model creation will happen automatically, please wait until it's done. When the 
 ### Final
 
 The ***MLModel.zip*** file will be created inside your Dataset folder. Use it with the ***VoiceNET Library*** to build Voice Command Control for your software.
+
+### How to use Model from MicBuilder? ###
+<div align="center">
+
+[![How to use Model from MicBuilder for real-time Voice Command Control function?](https://img.youtube.com/vi/0Yr47TZQ8FI/0.jpg)](https://www.youtube.com/watch?v=0Yr47TZQ8FI)
+
+How to use Model from MicBuilder for real-time Voice Command Control function?
+
+</div>
