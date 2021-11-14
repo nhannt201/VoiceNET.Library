@@ -3,7 +3,7 @@
 ### Vietnamese video tutorial ###
 <div align="center">
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/BjLVaWxWzww/0.jpg)](https://www.youtube.com/watch?v=BjLVaWxWzww)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/4YJ2BpDv_FI/0.jpg)](https://www.youtube.com/watch?v=4YJ2BpDv_FI)
 
 MicBuilder Video Tutorial
 
