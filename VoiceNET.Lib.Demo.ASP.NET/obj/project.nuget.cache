@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "oNrTsf2ObQtbYlRVSVD97reUba+QhpYKzDbp1Kvupsb1Y608MJ/cfjrDYRl3HXECyQXilIjBY1u7NagCTiLs1g==",
+  "dgSpecHash": "L5Ca44PVJbchu34FPKf3g8PkIt3h8ntY9Q21DvlKzFGZ8Pid2sEXDSRcdSqEXJqx47fgQ1Vp0SUg9oRy+gDsSg==",
   "success": true,
   "projectFilePath": "D:\\LAPTRINH\\C#\\VoiceNET Library Project\\PublicGIT\\VoiceNET.Lib.Demo.ASP.NET\\VoiceNET.Lib.Demo.ASP.NET.csproj",
   "expectedPackageFiles": [
@@ -117,7 +117,7 @@
     "C:\\Users\\Admin\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\tensorflow.net\\0.11.8.1\\tensorflow.net.0.11.8.1.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\voicenet.library\\1.0.2.4\\voicenet.library.1.0.2.4.nupkg.sha512"
+    "C:\\Users\\Admin\\.nuget\\packages\\voicenet.library\\1.0.3\\voicenet.library.1.0.3.nupkg.sha512"
   ],
   "logs": []
 }

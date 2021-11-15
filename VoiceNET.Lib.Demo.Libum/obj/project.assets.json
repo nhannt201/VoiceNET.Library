@@ -520,7 +520,7 @@
           "lib/netstandard2.0/TensorFlow.NET.dll": {}
         }
       },
-      "VoiceNET.Library/1.0.2.3": {
+      "VoiceNET.Library/1.0.3": {
         "type": "package",
         "dependencies": {
           "FftSharp": "1.0.8",
@@ -535,13 +535,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/VoiceNET.Lib.dll": {}
-        },
-        "contentFiles": {
-          "contentFiles/any/netstandard2.0/voicenet.ico": {
-            "buildAction": "Content",
-            "codeLanguage": "any",
-            "copyToOutput": false
-          }
         }
       }
     },
@@ -978,7 +971,7 @@
           "lib/netstandard2.0/TensorFlow.NET.dll": {}
         }
       },
-      "VoiceNET.Library/1.0.2.3": {
+      "VoiceNET.Library/1.0.3": {
         "type": "package",
         "dependencies": {
           "FftSharp": "1.0.8",
@@ -993,13 +986,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/VoiceNET.Lib.dll": {}
-        },
-        "contentFiles": {
-          "contentFiles/any/netstandard2.0/voicenet.ico": {
-            "buildAction": "Content",
-            "codeLanguage": "any",
-            "copyToOutput": false
-          }
         }
       }
     },
@@ -1445,7 +1431,7 @@
           "lib/netstandard2.0/TensorFlow.NET.dll": {}
         }
       },
-      "VoiceNET.Library/1.0.2.3": {
+      "VoiceNET.Library/1.0.3": {
         "type": "package",
         "dependencies": {
           "FftSharp": "1.0.8",
@@ -1460,13 +1446,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/VoiceNET.Lib.dll": {}
-        },
-        "contentFiles": {
-          "contentFiles/any/netstandard2.0/voicenet.ico": {
-            "buildAction": "Content",
-            "codeLanguage": "any",
-            "copyToOutput": false
-          }
         }
       }
     },
@@ -1909,7 +1888,7 @@
           "lib/netstandard2.0/TensorFlow.NET.dll": {}
         }
       },
-      "VoiceNET.Library/1.0.2.3": {
+      "VoiceNET.Library/1.0.3": {
         "type": "package",
         "dependencies": {
           "FftSharp": "1.0.8",
@@ -1924,13 +1903,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/VoiceNET.Lib.dll": {}
-        },
-        "contentFiles": {
-          "contentFiles/any/netstandard2.0/voicenet.ico": {
-            "buildAction": "Content",
-            "codeLanguage": "any",
-            "copyToOutput": false
-          }
         }
       }
     }
@@ -2751,20 +2723,18 @@
         "tensorflow.net.nuspec"
       ]
     },
-    "VoiceNET.Library/1.0.2.3": {
-      "sha512": "UXV7IueEXnKFBNDEVEv8zKjz/kmTvKrsbEEulYpFtpB7pZAFxb+Xmhpk7UvmLVPRjyr9G/Z1LRwrAbLt8M6QEA==",
+    "VoiceNET.Library/1.0.3": {
+      "sha512": "ZXtDqiiu5jb+O/YtgOCE1iW75ITE3p+UB8XD+XUcuG5fvDMDYpKYH7yfktfiHH4EBS4mM/H3Kn+4xYTFiY8SnA==",
       "type": "package",
-      "path": "voicenet.library/1.0.2.3",
+      "path": "voicenet.library/1.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.txt",
         "README.MD",
         "VoiceNET.png",
-        "content/voicenet.ico",
-        "contentFiles/any/netstandard2.0/voicenet.ico",
         "lib/netstandard2.0/VoiceNET.Lib.dll",
-        "voicenet.library.1.0.2.3.nupkg.sha512",
+        "lib/netstandard2.0/VoiceNET.Lib.pdb",
+        "voicenet.library.1.0.3.nupkg.sha512",
         "voicenet.library.nuspec"
       ]
     }
@@ -2774,7 +2744,7 @@
       "FftSharp >= 1.0.8",
       "Microsoft.ML >= 1.5.2",
       "NAudio >= 2.0.0",
-      "VoiceNET.Library >= 1.0.2.3"
+      "VoiceNET.Library >= 1.0.3"
     ]
   },
   "packageFolders": {
@@ -2824,7 +2794,7 @@
           },
           "VoiceNET.Library": {
             "target": "Package",
-            "version": "[1.0.2.3, )"
+            "version": "[1.0.3, )"
           }
         }
       }

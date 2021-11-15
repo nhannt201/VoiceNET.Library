@@ -12,16 +12,6 @@
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <SourceRoot Include="C:\Users\Admin\.nuget\packages\" />
   </ItemGroup>
-  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Content Include="$(NuGetPackageRoot)voicenet.library\1.0.2.4\contentFiles\any\netstandard2.0\voicenet.ico" Condition="Exists('$(NuGetPackageRoot)voicenet.library\1.0.2.4\contentFiles\any\netstandard2.0\voicenet.ico')">
-      <NuGetPackageId>VoiceNET.Library</NuGetPackageId>
-      <NuGetPackageVersion>1.0.2.4</NuGetPackageVersion>
-      <NuGetItemType>Content</NuGetItemType>
-      <Pack>false</Pack>
-      <Private>False</Private>
-      <Link>voicenet.ico</Link>
-    </Content>
-  </ItemGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">C:\Users\Admin\.nuget\packages\newtonsoft.json\10.0.3</PkgNewtonsoft_Json>
   </PropertyGroup>

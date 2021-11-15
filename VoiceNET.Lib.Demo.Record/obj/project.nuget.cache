@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "yXlE3Q4AgTsxAj3RrCzQGrlM6JCw2K7HMIEAHJ/bb3AfEivqarbXF1IkEIbYxpxkp/GgYgN4FHEyh0WTK79A4g==",
+  "dgSpecHash": "nIgC+a5QJ6n2ZqxYUtrwLOHut6EApRyF78/s3Xu/ow03+FITOF8r3JwRHeKNMDqqhn7iPdgSkUuN+nMxIw72iA==",
   "success": true,
   "projectFilePath": "D:\\LAPTRINH\\C#\\VoiceNET Library Project\\PublicGIT\\VoiceNET.Lib.Demo.Record\\VoiceNET.Lib.Demo.Record.csproj",
   "expectedPackageFiles": [
@@ -37,7 +37,7 @@
     "C:\\Users\\Admin\\.nuget\\packages\\system.threading.channels\\4.7.1\\system.threading.channels.4.7.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\tensorflow.net\\0.11.8.1\\tensorflow.net.0.11.8.1.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\voicenet.library\\1.0.2.3\\voicenet.library.1.0.2.3.nupkg.sha512"
+    "C:\\Users\\Admin\\.nuget\\packages\\voicenet.library\\1.0.3\\voicenet.library.1.0.3.nupkg.sha512"
   ],
   "logs": []
 }

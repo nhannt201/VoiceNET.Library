@@ -37,7 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="VoiceNET.Library">
-      <Version>1.0.2.3</Version>
+      <Version>1.0.3</Version>
     </PackageReference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

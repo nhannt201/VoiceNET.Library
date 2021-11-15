@@ -48,7 +48,7 @@
             },
             "VoiceNET.Library": {
               "target": "Package",
-              "version": "[1.0.2.3, )"
+              "version": "[1.0.3, )"
             }
           }
         }
