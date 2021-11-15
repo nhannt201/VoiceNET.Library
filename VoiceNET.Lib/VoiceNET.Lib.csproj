@@ -3,13 +3,15 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
 
-	  <!-- Optional: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
 	  <PublishRepositoryUrl>true</PublishRepositoryUrl>
 
-	  <!-- Optional: Embed source files that are not tracked by the source control manager in the PDB -->
 	  <EmbedUntrackedSources>true</EmbedUntrackedSources>
+
+	  <IncludeSymbols>true</IncludeSymbols>
 	  
-    <Platforms>AnyCPU;x64</Platforms>
+	  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+	  <Platforms>AnyCPU;x64</Platforms>
 	  
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	  
@@ -19,7 +21,7 @@
 	  
     <PackageId>VoiceNET.Library</PackageId>
 	  
-    <Version>1.0.2.6</Version>
+    <Version>1.0.2.7</Version>
 	  
     <Product>VoiceNET.Library</Product>
 	  
@@ -41,8 +43,6 @@
     <DelaySign>True</DelaySign>
 	  
     <Description>.NET Library makes it easy and fast to create Voice Command Control functionality. It helps develop software voice control in real-time. It free supports online and offline use.</Description>
-    
-	  <AssemblyOriginatorKeyFile>D:\LAPTRINH\C#\VoiceNET Library Project\private.snk</AssemblyOriginatorKeyFile>
 	  
     <AssemblyVersion></AssemblyVersion>
 	  
@@ -62,7 +62,7 @@
 	  	  
     <NeutralLanguage>en</NeutralLanguage>
 	  	  
-    <DebugType>none</DebugType>
+    <DebugType>portable</DebugType>
 	  
   </PropertyGroup>
 
@@ -85,6 +85,10 @@
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="voicenet.ico" />
+  </ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="FftSharp" Version="1.0.8" />
 		<PackageReference Include="Microsoft.ML" Version="[1.5.2,1.6.0]" />
@@ -92,7 +96,11 @@
 		<PackageReference Include="Microsoft.ML.Vision" Version="[1.5.2,1.6.0]" />
 		<PackageReference Include="NAudio" Version="2.0.0" />
 		<PackageReference Include="SciSharp.TensorFlow.Redist" Version="[1.14.0]" />
-		<Reference Include="System.Drawing.Common" Version="4.0.0.2" />
+		<Reference Include="System.Drawing.Common" Version="4.0.0.0" />
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
 	</ItemGroup>
 	<ItemGroup>
     <ProjectCapability Include="ModelBuilderGenerated" />
