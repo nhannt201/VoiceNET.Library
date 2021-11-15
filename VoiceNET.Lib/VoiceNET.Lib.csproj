@@ -21,7 +21,7 @@
 	  
     <PackageId>VoiceNET.Library</PackageId>
 	  
-    <Version>1.0.2.7</Version>
+    <Version>1.0.2.71</Version>
 	  
     <Product>VoiceNET.Library</Product>
 	  
@@ -39,7 +39,7 @@
 	  
     <PackageTags>VoiceNET.Library, Voice Command Control, Voice Recognition, voice recognition through image spectrogram, Spectrogram, ml.net, machine learning image classification, voice control, voice assistant</PackageTags>
     
-	  <PackageReleaseNotes>Clean up &amp; optimize code</PackageReleaseNotes>
+	  <PackageReleaseNotes>Change something code</PackageReleaseNotes>
     <DelaySign>True</DelaySign>
 	  
     <Description>.NET Library makes it easy and fast to create Voice Command Control functionality. It helps develop software voice control in real-time. It free supports online and offline use.</Description>

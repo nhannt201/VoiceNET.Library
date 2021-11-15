@@ -17,11 +17,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyDescriptionAttribute(".NET Library makes it easy and fast to create Voice Command Control functionality" +
     ". It helps develop software voice control in real-time. It free supports online " +
     "and offline use.")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.2.7")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.2.7")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.2.71")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.2.71")]
 [assembly: System.Reflection.AssemblyProductAttribute("VoiceNET.Library")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VoiceNET.Lib")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.0.2.7")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.0.2.71")]
 [assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/nhannt201/VoiceNET.Library")]
 [assembly: System.Resources.NeutralResourcesLanguageAttribute("en")]
 
