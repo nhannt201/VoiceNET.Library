@@ -1,9 +1,0 @@
-D:\LAPTRINH\C#\ResFes 2021\ViDeepML.Lib\bin\x64\Debug\netstandard2.0\ViDeepML.Lib.deps.json
-D:\LAPTRINH\C#\ResFes 2021\ViDeepML.Lib\bin\x64\Debug\netstandard2.0\ViDeepML.Lib.dll
-D:\LAPTRINH\C#\ResFes 2021\ViDeepML.Lib\bin\x64\Debug\netstandard2.0\ViDeepML.Lib.pdb
-D:\LAPTRINH\C#\ResFes 2021\ViDeepML.Lib\obj\x64\Debug\netstandard2.0\ViDeepML.Lib.csproj.AssemblyReference.cache
-D:\LAPTRINH\C#\ResFes 2021\ViDeepML.Lib\obj\x64\Debug\netstandard2.0\ViDeepML.Lib.AssemblyInfoInputs.cache
-D:\LAPTRINH\C#\ResFes 2021\ViDeepML.Lib\obj\x64\Debug\netstandard2.0\ViDeepML.Lib.AssemblyInfo.cs
-D:\LAPTRINH\C#\ResFes 2021\ViDeepML.Lib\obj\x64\Debug\netstandard2.0\ViDeepML.Lib.csproj.CoreCompileInputs.cache
-D:\LAPTRINH\C#\ResFes 2021\ViDeepML.Lib\obj\x64\Debug\netstandard2.0\ViDeepML.Lib.dll
-D:\LAPTRINH\C#\ResFes 2021\ViDeepML.Lib\obj\x64\Debug\netstandard2.0\ViDeepML.Lib.pdb
