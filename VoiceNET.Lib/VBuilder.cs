@@ -84,7 +84,6 @@ namespace VoiceNET.Lib
         }
 
         //Nhan dang dung phu thuoc vao cau hinh Microphone luc create data tranin/
-        //Doi voi may cua tui: Microphone volume = 70, Boost +12.0dB
         //Khi record doi vai giay de mic bat dau thu am
         public static void Record()
         {
