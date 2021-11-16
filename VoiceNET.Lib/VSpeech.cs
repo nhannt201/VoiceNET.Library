@@ -5,12 +5,12 @@ using Spectrogram;
 using System.Drawing;
 using System.Diagnostics;
 using System.IO;
+using System.Timers;
 
 namespace VoiceNET.Lib
 {
        public class VSpeech 
         {
-
         static UnsignedMixerControl volumeControl;
 
         static SpectrogramGenerator spec;
@@ -31,13 +31,18 @@ namespace VoiceNET.Lib
 
         static bool needDispose = false;
 
-        internal static string temp_image_analytic = Path.Combine(Path.GetTempPath() + Guid.NewGuid().ToString() + ".png");
+        internal static string temp_image_analytic = Path.Combine(Path.GetTempPath() + @"\VoiceNET.Library\" + Guid.NewGuid().ToString() + ".png");
 
-        private static string temp_path_analytic = Path.Combine(Path.GetTempPath() + @"\VoiceNET.Library");
+        internal static string temp_path_analytic = Path.Combine(Path.GetTempPath() + @"\VoiceNET.Library");
+
+        public static ComboBox WPFcbDevice = new ComboBox();
+
+         static int WPFpbSpec = defaultWidth;
+
 
         public VSpeech()
         {
-
+          
         }
         public static void getDevice(ComboBox cbDevice)
         {
@@ -50,6 +55,16 @@ namespace VoiceNET.Lib
                     cbDevice.Items.Add(NAudio.Wave.WaveIn.GetCapabilities(i).ProductName);
                 cbDevice.SelectedIndex = 0; //Default
             }
+        }
+
+        public static void WPFgetDevice() //WPF
+        {
+                //Add device to Combobox
+                WPFcbDevice.Items.Clear();
+                for (int i = 0; i < NAudio.Wave.WaveIn.DeviceCount; i++)
+                    WPFcbDevice.Items.Add(NAudio.Wave.WaveIn.GetCapabilities(i).ProductName);
+                WPFcbDevice.SelectedIndex = 0; //Default
+            
         }
         public static bool checkDevice()
         {
@@ -105,6 +120,18 @@ namespace VoiceNET.Lib
             spec = new SpectrogramGenerator(sampleRate, fftSize, stepSize);
         }
 
+        public static void WPFStartListening() //WPF
+        {
+            int sampleRate = 6000;
+            int fftSize = 512;
+            int stepSize = fftSize / 20;
+
+            listener?.Dispose();
+            listener = new Listener(WPFcbDevice.SelectedIndex, sampleRate);
+            spec = new SpectrogramGenerator(sampleRate, fftSize, stepSize);
+           
+        }
+
         static int valueInput = 0;
 
         public static int getAmplitude
@@ -118,10 +145,6 @@ namespace VoiceNET.Lib
 
             double multiplier = 0.25;// tbBrightness.Value / 20.0; = 5/20
 
-            
-           // if (spec.FftsToProcess > 0)
-          //  {
-
                 Stopwatch sw = Stopwatch.StartNew();
                 spec.Process();
                 spec.SetFixedWidth(picWidth);
@@ -134,8 +157,27 @@ namespace VoiceNET.Lib
                 valueInput = (int)(listener.AmplitudeFrac * 100); //100 la maxium cua progress value
                 return bmpSpec;
 
-          //  } 
-          //  return null;
+        }
+
+        public static void WPFListenTimer() //WPF
+        {
+            double[] newAudio = listener.GetNewAudio();
+                spec.Add(newAudio, process: false);
+
+                double multiplier = 0.25;// tbBrightness.Value / 20.0; = 5/20
+
+            Stopwatch sw = Stopwatch.StartNew();
+            spec.Process();
+            spec.SetFixedWidth(WPFpbSpec);
+            Bitmap bmpSpec = new Bitmap(spec.Width, spec.Height, System.Drawing.Imaging.PixelFormat.Format32bppPArgb);
+            using (var bmpSpecIndexed = spec.GetBitmap(multiplier, false, roll: false))
+            using (var gfx = Graphics.FromImage(bmpSpec))
+            using (var pen = new Pen(Color.White))
+                gfx.DrawImage(bmpSpecIndexed, 0, 0);
+            sw.Stop();
+
+            valueInput = (int)(listener.AmplitudeFrac * 100); //100 la maxium cua progress value
+
         }
 
         public static void ListenDispose()
@@ -158,6 +200,7 @@ namespace VoiceNET.Lib
             picWantTake.Width = defaultWidth;
             return spec.GetBitmap(0.25);
         }
+
 
         //Setting MicBuilder
         public static void setMinVolume(int volume) => minVolume = volume;
@@ -226,6 +269,109 @@ namespace VoiceNET.Lib
             }
         }
 
+        //Timer for WPF
+        private static System.Timers.Timer WPFTimer_Listener;
+        private static System.Timers.Timer WPFTimer_DisposeRam;
+
+
+        private static string return_label =  "";
+
+        public static string WPFGetResult
+        {
+            get { return return_label; }
+        }
+        public static void WPFListener()
+        {
+            WPFStartListening();
+
+            WPFTimer_Listener = new System.Timers.Timer(100);
+            WPFTimer_Listener.Elapsed += WPF_Listener;
+            WPFTimer_Listener.AutoReset = true;
+            WPFTimer_Listener.Enabled = true;
+
+            WPFDisposeRam();
+        }
+
+        public static void WPFDisposeRam()
+        {
+            WPFTimer_DisposeRam = new System.Timers.Timer(1);
+            WPFTimer_DisposeRam.Elapsed += WPF_DisposeRam;
+            WPFTimer_DisposeRam.AutoReset = true;
+            WPFTimer_DisposeRam.Enabled = true;
+        }
+
+        private static void WPF_Listener(Object source, ElapsedEventArgs e)
+        {
+            if (VBuilder.requestDisposeListening)
+
+            {
+                WPFpbSpec = defaultWidth;
+
+                return_label = VBuilder.WPFResult();
+
+                WPFStartListening(); //Renew Lisener
+
+                VBuilder.requestDisposeListening = false;
+
+            }
+
+            else
+
+            {
+
+                VBuilder.WPFreduceNoiseAndCapture();
+
+            }
+
+        }
+
+        private static void WPF_DisposeRam(Object source, ElapsedEventArgs e)
+        {
+            WPFListenTimer();
+        }
+
+        //End Timer for WPF
+
+        public static void WPFreduceNoiseAndCapture(bool devtrainer = false) //WPF
+        {
+
+            if (getAmplitude >= getMinVolume())
+            {
+                isTalking = true;
+
+                secondTalking += 100;
+
+
+                if (secondTalking > 680 && WPFpbSpec <= 900) WPFpbSpec += 60;
+
+            }
+
+            else if (getAmplitude <= getMinVolume())
+            {
+
+                if (isTalking == true)
+                {
+                    if (secondTalking > getMicTime())
+                    {
+                        ListenDispose();
+
+
+                        if (devtrainer)
+                            saveImageLabelCache();
+                        else
+                            saveImage(temp_image_analytic);
+
+                        needDispose = true;
+
+                        secondTalking = 0;
+                    }
+
+
+                }
+                isTalking = false;
+            }
+        }
+
         public static bool requestDisposeListening
         {
             get { return needDispose; }  
@@ -234,21 +380,8 @@ namespace VoiceNET.Lib
 
         private static void saveImageLabelCache()//string subfolder, int type = 0)
         {
-            //Taoj thu muc trong bo nho dem
-            if (!Directory.Exists(temp_path_analytic)) Directory.CreateDirectory(temp_path_analytic);
 
             string filename = "vb_cache";
-            //Chỉ tạo 1 ảnh capture theo cấu hình mặc định và sao chép vào Dataset chỉ định
-            /* if (type == 0)
-             {
-               //  bmp.Save((Application.StartupPath + @"\img.png"), ImageFormat.Png);
-                 string ImageFileS = Application.StartupPath + @"\" + subfolder + @"\" + filename + @"\" + filename + "_" + DateTime.Now.ToString("HH-mm-ss").ToString() + "_" + DateTime.Now.DayOfWeek.ToString();
-                 System.IO.File.Copy(Application.StartupPath + @"\img.png", ImageFileS + "_here" + ".png");
-             }*/
-            //Tạm lưu các ảnh capture được (gồm các ảnh có brighteness khác nhau) vào thư mục hiện tại để chờ copy
-            //  if (type == 1)
-            //   {
-
             //Mặc định để save cache, không có tuỳ chọn khác
 
             string ImageFileS = temp_path_analytic + @"\" + filename;
@@ -298,17 +431,17 @@ namespace VoiceNET.Lib
 
             string TempImagePath = temp_path_analytic + @"\" + cachename;
 
-            System.IO.File.Copy(TempImagePath + @"_1.png", ImageFileS + "_1" + exsFile);
-            System.IO.File.Copy(TempImagePath + @"_2.png", ImageFileS + "_2" + exsFile);
-            System.IO.File.Copy(TempImagePath + @"_here.png", ImageFileS + "_here" + exsFile);
-            System.IO.File.Copy(TempImagePath + @"_3.png", ImageFileS + "_3" + exsFile);
-            System.IO.File.Copy(TempImagePath + @"_4.png", ImageFileS + "_4" + exsFile);
-            System.IO.File.Copy(TempImagePath + @"_5.png", ImageFileS + "_5" + exsFile);
-            System.IO.File.Copy(TempImagePath + @"_6.png", ImageFileS + "_6" + exsFile);
-            System.IO.File.Copy(TempImagePath + @"_7.png", ImageFileS + "_7" + exsFile);
-            System.IO.File.Copy(TempImagePath + @"_8.png", ImageFileS + "_8" + exsFile);
-            System.IO.File.Copy(TempImagePath + @"_9.png", ImageFileS + "_9" + exsFile);
-            System.IO.File.Copy(TempImagePath + @"_10.png", ImageFileS + "_10" + exsFile);
+            File.Copy(TempImagePath + @"_1.png", ImageFileS + "_1" + exsFile);
+            File.Copy(TempImagePath + @"_2.png", ImageFileS + "_2" + exsFile);
+            File.Copy(TempImagePath + @"_here.png", ImageFileS + "_here" + exsFile);
+            File.Copy(TempImagePath + @"_3.png", ImageFileS + "_3" + exsFile);
+            File.Copy(TempImagePath + @"_4.png", ImageFileS + "_4" + exsFile);
+            File.Copy(TempImagePath + @"_5.png", ImageFileS + "_5" + exsFile);
+            File.Copy(TempImagePath + @"_6.png", ImageFileS + "_6" + exsFile);
+            File.Copy(TempImagePath + @"_7.png", ImageFileS + "_7" + exsFile);
+            File.Copy(TempImagePath + @"_8.png", ImageFileS + "_8" + exsFile);
+            File.Copy(TempImagePath + @"_9.png", ImageFileS + "_9" + exsFile);
+            File.Copy(TempImagePath + @"_10.png", ImageFileS + "_10" + exsFile);
 
 
 

@@ -17,9 +17,9 @@ namespace VoiceNET.Lib
         [DllImport("winmm.dll", EntryPoint = "mciSendStringA", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
         private static extern int mciSendString(string lpstrCommand, string lpstrReturnString, int uReturnLength, int hwndCallback);
 
-        private static string temp_wav_analytic =  Path.Combine(Path.GetTempPath() + Guid.NewGuid().ToString() + ".wav");
+        private static string temp_wav_analytic =  Path.Combine(Path.GetTempPath() + @"\VoiceNET.Library\" + Guid.NewGuid().ToString() + ".wav");
 
-        private static string temp_imgload_analytic = Path.Combine(Path.GetTempPath() + Guid.NewGuid().ToString() + "_loadcache.png");
+        private static string temp_imgload_analytic = Path.Combine(Path.GetTempPath() + @"\VoiceNET.Library\" + Guid.NewGuid().ToString() + ".png");
 
 
         private static string result_label = "";
@@ -27,7 +27,6 @@ namespace VoiceNET.Lib
         private static bool isTrainData = false;
 
         public static object VSpeech { get; set; }
-
 
         public static async void startTrainData()
         {
@@ -45,7 +44,6 @@ namespace VoiceNET.Lib
 
              }
             
-           
 
         }
         public static string getModelFilePath() => ModelBuilder.MODEL_FILEPATH;
@@ -53,7 +51,8 @@ namespace VoiceNET.Lib
 
         public static bool loadModel()
         {
-            Bitmap bmp = new Bitmap(100, 100);
+            if (!Directory.Exists(temp_path_analytic)) Directory.CreateDirectory(temp_path_analytic);
+            Bitmap bmp = new Bitmap(100,100);
             Graphics g = Graphics.FromImage(bmp);
             g.Clear(Color.Black);
             bmp.Save(temp_imgload_analytic);
@@ -80,6 +79,7 @@ namespace VoiceNET.Lib
    
         public static void ModelPath(string model)
         {
+            if (!Directory.Exists(temp_path_analytic)) Directory.CreateDirectory(temp_path_analytic);
             ConsumeModel.MLNetModelPath = model;
         }
 
@@ -146,6 +146,20 @@ namespace VoiceNET.Lib
             sg.SaveImage(temp_image_analytic);
 
             //Image to Text
+        }
+
+
+        public static string WPFResult()
+        {
+
+            ModelInput SpeechDataset = new ModelInput()
+            {
+                ImageSource = temp_image_analytic,
+            };
+
+            result_label = ConsumeModel.Predict(SpeechDataset).Prediction;
+
+            return result_label;
         }
 
         public static string Result(bool isSoundData=false)

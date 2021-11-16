@@ -1,0 +1,69 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\LAPTRINH\\C#\\VoiceNET Library Project\\PublicGIT\\VoiceNET.Lib.Demo.Libum\\VoiceNET.Lib.WinForm.Realtime.csproj": {}
+  },
+  "projects": {
+    "D:\\LAPTRINH\\C#\\VoiceNET Library Project\\PublicGIT\\VoiceNET.Lib.Demo.Libum\\VoiceNET.Lib.WinForm.Realtime.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\LAPTRINH\\C#\\VoiceNET Library Project\\PublicGIT\\VoiceNET.Lib.Demo.Libum\\VoiceNET.Lib.WinForm.Realtime.csproj",
+        "projectName": "Libum",
+        "projectPath": "D:\\LAPTRINH\\C#\\VoiceNET Library Project\\PublicGIT\\VoiceNET.Lib.Demo.Libum\\VoiceNET.Lib.WinForm.Realtime.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\LAPTRINH\\C#\\VoiceNET Library Project\\PublicGIT\\VoiceNET.Lib.Demo.Libum\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "dependencies": {
+            "FftSharp": {
+              "target": "Package",
+              "version": "[1.0.8, )"
+            },
+            "Microsoft.ML": {
+              "target": "Package",
+              "version": "[1.5.2, )"
+            },
+            "NAudio": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
+            "VoiceNET.Library": {
+              "target": "Package",
+              "version": "[1.0.3, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
