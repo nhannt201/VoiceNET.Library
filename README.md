@@ -3,7 +3,7 @@
 [![Nuget](https://img.shields.io/nuget/v/VoiceNET.Library?label=NuGet&logo=nuget)](https://www.nuget.org/packages/VoiceNET.Library/)
 ## Free Voice Command Control Library
 ## Introduce
-**VoiceNET Library** makes it easy and fast to create Voice Command Control functionality through Label Prediction. It helps develop software voice control in real-time. It free supports online and offline use. This is a community development project to help people access voice recognition technology more easily.
+**VoiceNET Library** makes it easy and fast to create Voice Command Control functionality through Label Prediction. It helps develop software or web voice control in real-time. It free supports online and offline use. This is a community development project to help people access voice recognition technology more easily.
 
 It's a research project from the FPT Edu Research Festival 2021 contest.
 

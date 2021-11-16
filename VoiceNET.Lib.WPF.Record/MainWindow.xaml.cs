@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +25,9 @@ namespace VoiceNET.Lib.WPF.Record
         {
             InitializeComponent();
 
-            VBuilder.ModelPath(AppDomain.CurrentDomain.BaseDirectory + @"\MLModel.zip");
+            // Path in actual use - VBuilder.ModelPath(AppDomain.CurrentDomain.BaseDirectory + @"\MLModel.zip");
+
+            VBuilder.ModelPath(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + @"\SampleModel\MLModel.zip");
 
             if (VBuilder.loadModel())
 

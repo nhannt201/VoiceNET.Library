@@ -29,18 +29,17 @@ namespace VoiceNET.Lib.Demo.ASP.NET.Controllers
         public async Task<IActionResult> PostRecord()
         {
             var files = Request.Form.Files;
-            //long size = files.Sum(f => f.Length);
 
-            // full path to file in temp location
+            // Full path to file in temp location
             var filePath = Path.GetTempFileName();
 
-            //Save image
+            //Save wav
             using (var ms = new FileStream(filePath, FileMode.Create))
             {
                 await files[0].CopyToAsync(ms);
             }
 
-            VBuilder.ModelPath(Path.Combine("MLModel.zip"));
+            VBuilder.ModelPath(Directory.GetParent(Directory.GetCurrentDirectory()).FullName + @"\SampleModel\MLModel.zip");
 
             //setWebRecord support from VoiceNET.Library >= 1.0.2.4
 

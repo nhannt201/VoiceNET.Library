@@ -31,19 +31,14 @@ namespace VoiceNET.Lib
 
         static bool needDispose = false;
 
-        internal static string temp_image_analytic = Path.Combine(Path.GetTempPath() + @"\VoiceNET.Library\" + Guid.NewGuid().ToString() + ".png");
+        protected static string temp_image_analytic = Path.Combine(Path.GetTempPath() + @"\VoiceNET.Library\" + Guid.NewGuid().ToString() + ".png");
 
-        internal static string temp_path_analytic = Path.Combine(Path.GetTempPath() + @"\VoiceNET.Library");
+        protected static string temp_path_analytic = Path.Combine(Path.GetTempPath() + @"\VoiceNET.Library");
 
-        public static ComboBox WPFcbDevice = new ComboBox();
+         static ComboBox WPFcbDevice = new ComboBox();
 
          static int WPFpbSpec = defaultWidth;
 
-
-        public VSpeech()
-        {
-          
-        }
         public static void getDevice(ComboBox cbDevice)
         {
             if (NAudio.Wave.WaveIn.DeviceCount == 0) MessageBox.Show("No audio input devices found.\n\nThis program will now exit.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -57,21 +52,17 @@ namespace VoiceNET.Lib
             }
         }
 
+        public static void getDevice() => WPFgetDevice(); //Default device
         public static void WPFgetDevice() //WPF
         {
                 //Add device to Combobox
                 WPFcbDevice.Items.Clear();
                 for (int i = 0; i < NAudio.Wave.WaveIn.DeviceCount; i++)
                     WPFcbDevice.Items.Add(NAudio.Wave.WaveIn.GetCapabilities(i).ProductName);
-                WPFcbDevice.SelectedIndex = 0; //Default
+                WPFcbDevice.SelectedIndex = 0; //Default device
             
         }
-        public static bool checkDevice()
-        {
-            if (NAudio.Wave.WaveIn.DeviceCount == 0)
-                return false;
-            return true;
-        }
+        public static bool checkDevice() => (NAudio.Wave.WaveIn.DeviceCount == 0) ? false : true;
 
         public static void setVolume(int volume)
         {
@@ -109,7 +100,7 @@ namespace VoiceNET.Lib
 
        
 
-        public static void StartListening(ComboBox cbDevice)
+        public static void StartListening(ComboBox cbDevice) //Choose microphone to listening
         {
             int sampleRate = 6000;
             int fftSize = 512;// 1 << (9 + cbFftSize.SelectedIndex);
@@ -120,7 +111,7 @@ namespace VoiceNET.Lib
             spec = new SpectrogramGenerator(sampleRate, fftSize, stepSize);
         }
 
-        public static void WPFStartListening() //WPF
+        static void WPFStartListening() //WPF
         {
             int sampleRate = 6000;
             int fftSize = 512;
@@ -134,10 +125,8 @@ namespace VoiceNET.Lib
 
         static int valueInput = 0;
 
-        public static int getAmplitude
-        {
-            get => valueInput;
-        }
+        public static int getAmplitude => valueInput;
+ 
         public static Bitmap ListenTimer(int picWidth)
         {
             double[] newAudio = listener.GetNewAudio();
@@ -159,7 +148,7 @@ namespace VoiceNET.Lib
 
         }
 
-        public static void WPFListenTimer() //WPF
+        static void WPFListenTimer() //WPF
         {
             double[] newAudio = listener.GetNewAudio();
                 spec.Add(newAudio, process: false);
@@ -217,8 +206,6 @@ namespace VoiceNET.Lib
         public static string getPathDataset() => pathDataset;
 
         //Xu ly thiet lap giam tieng on
-  
-      
         public static void reduceNoiseAndCapture(PictureBox pic, bool devtrainer = false)
         {
             //Rõ ràng volume mic lớn thì khả năng nhận dạng càng cao tuy nhiên môi trường phải không ồn   
@@ -270,16 +257,14 @@ namespace VoiceNET.Lib
         }
 
         //Timer for WPF
-        private static System.Timers.Timer WPFTimer_Listener;
-        private static System.Timers.Timer WPFTimer_DisposeRam;
+        static System.Timers.Timer WPFTimer_Listener;
+        static System.Timers.Timer WPFTimer_DisposeRam;
 
 
-        private static string return_label =  "";
+        static string return_label =  "";
 
-        public static string WPFGetResult
-        {
-            get { return return_label; }
-        }
+        public static string WPFGetResult => return_label; //Get text
+
         public static void WPFListener()
         {
             WPFStartListening();
@@ -292,7 +277,7 @@ namespace VoiceNET.Lib
             WPFDisposeRam();
         }
 
-        public static void WPFDisposeRam()
+        static void WPFDisposeRam()
         {
             WPFTimer_DisposeRam = new System.Timers.Timer(1);
             WPFTimer_DisposeRam.Elapsed += WPF_DisposeRam;
@@ -300,7 +285,7 @@ namespace VoiceNET.Lib
             WPFTimer_DisposeRam.Enabled = true;
         }
 
-        private static void WPF_Listener(Object source, ElapsedEventArgs e)
+        static void WPF_Listener(Object source, ElapsedEventArgs e)
         {
             if (VBuilder.requestDisposeListening)
 
@@ -325,14 +310,14 @@ namespace VoiceNET.Lib
 
         }
 
-        private static void WPF_DisposeRam(Object source, ElapsedEventArgs e)
+        static void WPF_DisposeRam(Object source, ElapsedEventArgs e)
         {
             WPFListenTimer();
         }
 
         //End Timer for WPF
 
-        public static void WPFreduceNoiseAndCapture(bool devtrainer = false) //WPF
+        static void WPFreduceNoiseAndCapture() //WPF
         {
 
             if (getAmplitude >= getMinVolume())
@@ -355,11 +340,7 @@ namespace VoiceNET.Lib
                     {
                         ListenDispose();
 
-
-                        if (devtrainer)
-                            saveImageLabelCache();
-                        else
-                            saveImage(temp_image_analytic);
+                        saveImage(temp_image_analytic);
 
                         needDispose = true;
 
@@ -378,11 +359,10 @@ namespace VoiceNET.Lib
             set { needDispose = value; } 
         }
 
-        private static void saveImageLabelCache()//string subfolder, int type = 0)
+        private static void saveImageLabelCache()
         {
 
             string filename = "vb_cache";
-            //Mặc định để save cache, không có tuỳ chọn khác
 
             string ImageFileS = temp_path_analytic + @"\" + filename;
 
@@ -405,7 +385,7 @@ namespace VoiceNET.Lib
 
         }
 
-        public static void addImageLabel(string filename)
+        public static void addImageLabel(string filename) //For train data
         {
             //Yêu cầu trong folder phải có subfolder name theo label được nhập sau đó click nút MakeData để save data vừa nói lại vào đây
 

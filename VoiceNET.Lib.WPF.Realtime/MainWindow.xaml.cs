@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,13 +35,15 @@ namespace VoiceNET.Lib.WPF.Realtime
 
             tmGetResult.Tick += tmGetResult_Tick;
 
-            //Support WPF from v1.0.4
+            //Support WPF from v1.0.5
 
-            VBuilder.WPFgetDevice();
+            VBuilder.WPFgetDevice(); //Choose default microphone device
 
             VBuilder.setVolume(80);
 
-            VBuilder.ModelPath(AppDomain.CurrentDomain.BaseDirectory + @"\MLModel.zip");
+            // Path in actual use - VBuilder.ModelPath(AppDomain.CurrentDomain.BaseDirectory + @"\MLModel.zip");
+
+            VBuilder.ModelPath(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + @"\SampleModel\MLModel.zip");
 
             if (VBuilder.loadModel())
             {

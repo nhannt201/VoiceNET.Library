@@ -16,13 +16,15 @@ namespace Libum
     {
         public Init() => InitializeComponent();
 
-        private void Init_Load(object sender, EventArgs e) => VBuilder.ModelPath(Path.GetFullPath("MLModel.zip"));
+        // Path in actual use - VBuilder.ModelPath(Path.GetFullPath("MLModel.zip"));
+
+        private void Init_Load(object sender, EventArgs e) => VBuilder.ModelPath(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName + @"\SampleModel\MLModel.zip");
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (VBuilder.loadModel())
             {
-                
+
                 HomeAlbum home = new HomeAlbum();
 
                 home.MdiParent = MDIHome.ActiveForm;

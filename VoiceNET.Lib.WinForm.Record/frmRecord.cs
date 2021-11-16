@@ -29,7 +29,9 @@ namespace VoiceNET.Lib.RecordDemo
         private void frmRecordDemo_Load(object sender, EventArgs e)
         {
 
-            VBuilder.ModelPath(Path.GetFullPath("MLModel.zip"));
+            // Path in actual use - VBuilder.ModelPath(Path.GetFullPath("MLModel.zip"));
+
+            VBuilder.ModelPath(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName + @"\SampleModel\MLModel.zip");
 
             Enabled = false;
 
