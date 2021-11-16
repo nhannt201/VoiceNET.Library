@@ -1,11 +1,11 @@
 # VoiceNET Library
-## Product Demo - Libum
+## Product Demo - Real-time - Libum
 ### Vietnamese video demo ###
 <div align="center">
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/DlrB0pS42hE/0.jpg)](https://www.youtube.com/watch?v=DlrB0pS42hE)
+[![Demo in real-time Video](https://img.youtube.com/vi/DlrB0pS42hE/0.jpg)](https://www.youtube.com/watch?v=DlrB0pS42hE)
 
-MicBuilder Video Tutorial
+Demo in real-time Video
 
 </div>
 

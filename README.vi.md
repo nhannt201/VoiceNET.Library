@@ -54,7 +54,7 @@ hoặc từ NuGet Package Manager:
 Install-Package VoiceNET.Library
 ```
 ## Bắt đầu nhanh
-### Sử dụng trong thời gian thực ###
+### Sử dụng trong thời gian thực trên WinForm ###
 
 
 #### Ví dụ ####
@@ -149,7 +149,7 @@ tmLisener_Tick
             }
 
 ```
-### Dựa trên bản ghi âm ###
+### Dựa trên bản ghi âm trên WinForm ###
 #### Ví dụ ####
 
 <div align="center">
@@ -202,6 +202,15 @@ btnRecord.Enabled = true;
 btnStop.Enabled = false;
 
 ```
+
+### WPF Real-time ###
+
+Xem thêm ví dụ [VoiceNET.Lib.WPF.Realtime](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.WPF.Realtime) để biết cách sử dụng trên WPF.
+
+### WPF Recording ###
+
+Xem thêm ví dụ [VoiceNET.Lib.WPF.Record](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.WPF.Record) để biết cách sử dụng trên WPF.
+
 ### Web ASP.NET MVC
 
 Xem thêm ví dụ [VoiceNET.Lib.Demo.ASP.NET](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.Demo.ASP.NET) để biết cách sử dụng trên ASP.NET MVC.

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
   
 	  <PublishRepositoryUrl>true</PublishRepositoryUrl>
 
@@ -21,7 +21,7 @@
 	  
     <PackageId>VoiceNET.Library</PackageId>
 	  
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
 	  
     <Product>VoiceNET.Library</Product>
 

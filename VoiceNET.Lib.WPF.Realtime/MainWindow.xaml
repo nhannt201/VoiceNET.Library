@@ -1,0 +1,12 @@
+﻿<Window x:Class="VoiceNET.Lib.WPF.Realtime.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VoiceNET.Lib.WPF.Realtime"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid x:Name="frmHome">
+        <Label x:Name="lbResult" FontSize="50"  Content="Label R" HorizontalContentAlignment="Center" Margin="40,80,40,121" VerticalContentAlignment="Center" Width="720"/>
+    </Grid>
+</Window>

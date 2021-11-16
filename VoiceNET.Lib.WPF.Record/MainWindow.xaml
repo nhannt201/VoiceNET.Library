@@ -1,0 +1,14 @@
+﻿<Window x:Class="VoiceNET.Lib.WPF.Record.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VoiceNET.Lib.WPF.Record"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="800">
+        <Grid x:Name="grForm" Margin="0,0,0,-6">
+            <Button x:Name="btnStart" Content="Record" IsEnabled="False" FontSize="30" HorizontalAlignment="Left" Margin="100,89,0,0" VerticalAlignment="Top" Height="55" Width="189" Click="btnStart_Click"/>
+            <Button x:Name="btnStop" Content="Stop" IsEnabled="False" FontSize="30" HorizontalAlignment="Left" Margin="100,185,0,0" VerticalAlignment="Top" Height="55" Width="189" Click="btnStop_Click"/>
+            <Label x:Name="lbResult" FontSize="30" Content="Label Result" HorizontalAlignment="Left" Margin="494,148,0,0" VerticalAlignment="Top"/>
+        </Grid>
+</Window>

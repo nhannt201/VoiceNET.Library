@@ -53,7 +53,7 @@ or from the NuGet Package Manager:
 Install-Package VoiceNET.Library
 ```
 ## Quickstart
-### Real-time ###
+### WinForm Real-time ###
 
 
 #### Example ####
@@ -148,7 +148,7 @@ tmLisener_Tick
             }
 
 ```
-### Recording ###
+### WinForm Recording ###
 #### Example ####
 
 <div align="center">
@@ -201,6 +201,15 @@ btnRecord.Enabled = true;
 btnStop.Enabled = false;
 
 ```
+
+### WPF Real-time ###
+
+See the example in [VoiceNET.Lib.WPF.Realtime](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.WPF.Realtime) for more how to use it.
+
+### WPF Recording ###
+
+See the example in [VoiceNET.Lib.WPF.Record](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.WPF.Record) for more how to use it.
+
 ### Web ASP.NET MVC ###
 
 See the example in [VoiceNET.Lib.Demo.ASP.NET](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.Demo.ASP.NET) for more how to use it.
