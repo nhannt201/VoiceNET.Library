@@ -213,7 +213,7 @@ Xem thêm ví dụ [VoiceNET.Lib.WPF.Record](https://github.com/nhannt201/VoiceN
 
 ### Web ASP.NET MVC
 
-Xem thêm ví dụ [VoiceNET.Lib.Demo.ASP.NET](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.Demo.ASP.NET) để biết cách sử dụng trên ASP.NET MVC.
+Xem thêm ví dụ [VoiceNET.Lib.Web.AspNet](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.Web.AspNet) để biết cách sử dụng trên ASP.NET MVC.
 
 ## Làm thế nào để tạo một Model?
 Dùng phần mềm [MicBuilder](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.MicBuilder/README.MD) để xây dựng tệp MLModel.zip cho tập dữ liệu của bạn.
