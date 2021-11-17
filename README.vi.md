@@ -203,6 +203,8 @@ Dùng phần mềm [MicBuilder](https://github.com/nhannt201/VoiceNET.Library/tr
 
 ***MicBuilder Model Builder***
 
+</div>
+
 ## Thiết lập cấu hình
 
 - **Điều chỉnh âm lượng Microphone**:
