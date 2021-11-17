@@ -53,7 +53,7 @@ or from the NuGet Package Manager:
 Install-Package VoiceNET.Library
 ```
 ## Quickstart
-### WinForm Real-time ###
+### WinForm Real-time (This is full customization functionality, can use QuickStart in version 1.0.5.2) ###
 
 
 #### Example ####
