@@ -3,7 +3,7 @@
 [![Nuget](https://img.shields.io/nuget/v/VoiceNET.Library?label=NuGet&logo=nuget)](https://www.nuget.org/packages/VoiceNET.Library/)
 ## Free Voice Command Control Library
 ## Introduce
-**VoiceNET Library** makes it easy and fast to create Voice Command Control functionality through Label Prediction. It helps develop software or web voice control in real-time. It free supports online and offline use. This is a community development project to help people access voice recognition technology more easily.
+**VoiceNET Library** makes it easy and fast to create Voice Command Control functionality through Label Prediction. It helps develop voice control in real-time on software or the web. It free supports online and offline use. This is a community development project to help people access voice recognition technology more easily.
 
 It's a research project from the FPT Edu Research Festival 2021 contest.
 
@@ -69,85 +69,27 @@ Install-Package VoiceNET.Library
 ### How to make a demo in real-time? ###
 
 Drag and drop into the Windows Forms interface:
-- **Picturebox:** pbSpectrogram and picTake with Width=400
-- **Combobox:** cbDevice
 - **Label:** lbResult
-- **Timer:** tmLisener (Interval 100, Enabled=True) and tmDisposeRam (Interval 1, Enabled=True)
+- **Timer:** tmGetResult (Interval=100)
 
 In Form_Load
 ```cs
+VBuilder.ModelPath("<your_model_path>");
 
- VBuilder.getDevice(cbDevice);
- 
- VBuilder.setVolume(80);
- 
- VBuilder.ModelPath("<your_model_path>");
- 
- if(VBuilder.loadModel())
- 
-    //do something after Load Model
-	
- else
- 
-   //do something if fail
-   
+if (VBuilder.loadModel())
+    
+{
+	tmGetResult.Start();
+	VSpeech.WFListener();
+            
+}
 ```
-cbDevice_SelectedIndexChanged
+
+In tmGetResult
 ```cs
-StartListening();
+lbResult.Text = VSpeech.WFGetResult;
 ```
-Create two private void: StartListening() and DisposeImage().
- 
-StartListening()
-```cs
 
-DisposeImage();
-
-VBuilder.StartListening( cbDevice );
-
-```
-DisposeImage()
-```cs
-
-pbSpectrogram.Image?.Dispose();
-
-pbSpectrogram.Image = null;
-
-```
-tmDisposeRam_Tick
-```cs
-
-DisposeImage();
-
-pbSpectrogram.Image = VBuilder.ListenTimer(pbSpectrogram.Width);
-
-```
-tmLisener_Tick
-```cs
-
-  if(VBuilder.requestDisposeListening)
-  
-            {
-			
-                picTake.Image = VBuilder.getImageTaken(pbSpectrogram);
-
-                lbResult.Text = VBuilder.Result();
-
-                StartListening(); //Renew Lisener
-
-                VBuilder.requestDisposeListening = false;
-				
-            }
-			
-			else
-			
-            {
-			
-                VBuilder.reduceNoiseAndCapture(pbSpectrogram);
-				
-            }
-
-```
 ### WinForm Recording ###
 #### Example ####
 
@@ -204,7 +146,44 @@ btnStop.Enabled = false;
 
 ### WPF Real-time ###
 
-See the example in [VoiceNET.Lib.WPF.Realtime](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.WPF.Realtime) for more how to use it.
+Drag and drop into the WPF Application interface:
+
+- **Label**: lbResult
+
+Before MainWindow()
+
+```cs
+
+public DispatcherTimer tmGetResult = new DispatcherTimer();
+
+```
+
+In MainWindow()
+```cs
+tmGetResult.Interval = TimeSpan.FromSeconds(1);
+
+tmGetResult.Tick += tmGetResult_Tick;
+
+VBuilder.ModelPath("<your_model_path>");
+
+    if (VBuilder.loadModel())
+            
+	{
+
+        tmGetResult.Start();
+
+        VSpeech.WPFListener();
+
+    }
+	
+```
+
+In void tmGetResult_Tick
+```cs
+
+lbResult.Content = VSpeech.WPFGetResult;
+
+```
 
 ### WPF Recording ###
 

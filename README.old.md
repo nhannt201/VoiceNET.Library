@@ -3,7 +3,7 @@
 [![Nuget](https://img.shields.io/nuget/v/VoiceNET.Library?label=NuGet&logo=nuget)](https://www.nuget.org/packages/VoiceNET.Library/)
 ## Free Voice Command Control Library
 ## Introduce
-**VoiceNET Library** makes it easy and fast to create Voice Command Control functionality through Label Prediction. It helps develop voice control in real-time on software or the web. It free supports online and offline use. This is a community development project to help people access voice recognition technology more easily.
+**VoiceNET Library** makes it easy and fast to create Voice Command Control functionality through Label Prediction. It helps develop software or web voice control in real-time. It free supports online and offline use. This is a community development project to help people access voice recognition technology more easily.
 
 It's a research project from the FPT Edu Research Festival 2021 contest.
 
@@ -69,27 +69,85 @@ Install-Package VoiceNET.Library
 ### How to make a demo in real-time? ###
 
 Drag and drop into the Windows Forms interface:
+- **Picturebox:** pbSpectrogram and picTake with Width=400
+- **Combobox:** cbDevice
 - **Label:** lbResult
-- **Timer:** tmGetResult (Interval=100)
+- **Timer:** tmLisener (Interval 100, Enabled=True) and tmDisposeRam (Interval 1, Enabled=True)
 
 In Form_Load
 ```cs
-VBuilder.ModelPath("<your_model_path>");
 
-if (VBuilder.loadModel())
-    
-{
-	tmGetResult.Start();
-	VSpeech.WFListener();
-            
-}
+ VBuilder.getDevice(cbDevice);
+ 
+ VBuilder.setVolume(80);
+ 
+ VBuilder.ModelPath("<your_model_path>");
+ 
+ if(VBuilder.loadModel())
+ 
+    //do something after Load Model
+	
+ else
+ 
+   //do something if fail
+   
 ```
-
-In tmGetResult
+cbDevice_SelectedIndexChanged
 ```cs
-lbResult.Text = VSpeech.WFGetResult;
+StartListening();
 ```
+Create two private void: StartListening() and DisposeImage().
+ 
+StartListening()
+```cs
 
+DisposeImage();
+
+VBuilder.StartListening( cbDevice );
+
+```
+DisposeImage()
+```cs
+
+pbSpectrogram.Image?.Dispose();
+
+pbSpectrogram.Image = null;
+
+```
+tmDisposeRam_Tick
+```cs
+
+DisposeImage();
+
+pbSpectrogram.Image = VBuilder.ListenTimer(pbSpectrogram.Width);
+
+```
+tmLisener_Tick
+```cs
+
+  if(VBuilder.requestDisposeListening)
+  
+            {
+			
+                picTake.Image = VBuilder.getImageTaken(pbSpectrogram);
+
+                lbResult.Text = VBuilder.Result();
+
+                StartListening(); //Renew Lisener
+
+                VBuilder.requestDisposeListening = false;
+				
+            }
+			
+			else
+			
+            {
+			
+                VBuilder.reduceNoiseAndCapture(pbSpectrogram);
+				
+            }
+
+```
 ### WinForm Recording ###
 #### Example ####
 
@@ -146,44 +204,7 @@ btnStop.Enabled = false;
 
 ### WPF Real-time ###
 
-Drag and drop into the WPF Application interface:
-
-- **Label**: lbResult
-
-Before MainWindow()
-
-```cs
-
-public DispatcherTimer tmGetResult = new DispatcherTimer();
-
-```
-
-In MainWindow()
-```cs
-tmGetResult.Interval = TimeSpan.FromSeconds(1);
-
-tmGetResult.Tick += tmGetResult_Tick;
-
-VBuilder.ModelPath("<your_model_path>");
-
-    if (VBuilder.loadModel())
-            
-	{
-
-        tmGetResult.Start();
-
-        VSpeech.WPFListener();
-
-    }
-	
-```
-
-In void tmGetResult_Tick
-```cs
-
-lbResult.Content = VSpeech.WPFGetResult;
-
-```
+See the example in [VoiceNET.Lib.WPF.Realtime](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.WPF.Realtime) for more how to use it.
 
 ### WPF Recording ###
 
@@ -204,26 +225,6 @@ Use the included [MicBuilder](https://github.com/nhannt201/VoiceNET.Library/tree
 ***MicBuilder Model Builder***
 
 </div>
-
-## Setting
-
-- **Microphone volume adjustment**:
-
-```cs
-VBuilder.setVolume(80);
-```
-
-Ambient noise reduction setting
-
-- ***Min Value***:  Adjust the minimum volume level to perform capturing. Input sound that is less than this portion will be considered noise. The default value is 10%.
-```cs
-VBuilder.setMinVolume(10); 
-```
-- ***Continuous***: How long does the sound stay continuous when Sound Input > Min Volume. The default value is 250 milliseconds.
-```cs
-VBuilder.setMicTime(250);
-```
- 
 
 ## Resources
 * [FftSharp](https://www.nuget.org/packages/FftSharp/)

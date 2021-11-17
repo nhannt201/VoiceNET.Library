@@ -70,84 +70,25 @@ Install-Package VoiceNET.Library
 ### Làm thế nào để tạo bản demo trong thời gian thực? ###
 
 Kéo và thả vào giao diện Windows Forms:
-- **Picturebox:** pbSpectrogram và picTake với Width=400
-- **Combobox:** cbDevice
 - **Label:** lbResult
-- **Timer:** tmLisener (Interval 100, Enabled=True) và tmDisposeRam (Interval 1, Enabled=True)
+- **Timer:** tmGetResult (Interval=100)
 
 Trong Form_Load
 ```cs
+VBuilder.ModelPath("<your_model_path>");
 
- VBuilder.getDevice(cbDevice);
- 
- VBuilder.setVolume(80);
- 
- VBuilder.ModelPath("<your_model_path>");
- 
- if(VBuilder.loadModel())
- 
-    //do something after Load Model
-	
- else
- 
-   //do something if fail
-   
+if (VBuilder.loadModel())
+    
+{
+	tmGetResult.Start();
+	VSpeech.WFListener();
+            
+}
 ```
-cbDevice_SelectedIndexChanged
+
+Trong tmGetResult
 ```cs
-StartListening();
-```
-Tạo hai private void: StartListening() and DisposeImage().
- 
-StartListening()
-```cs
-
-DisposeImage();
-
-VBuilder.StartListening( cbDevice );
-
-```
-DisposeImage()
-```cs
-
-pbSpectrogram.Image?.Dispose();
-
-pbSpectrogram.Image = null;
-
-```
-tmDisposeRam_Tick
-```cs
-
-DisposeImage();
-
-pbSpectrogram.Image = VBuilder.ListenTimer(pbSpectrogram.Width);
-
-```
-tmLisener_Tick
-```cs
-
-  if(VBuilder.requestDisposeListening)
-  
-            {
-			
-                picTake.Image = VBuilder.getImageTaken(pbSpectrogram);
-
-                lbResult.Text = VBuilder.Result();
-
-                StartListening(); //Renew Lisener
-
-                VBuilder.requestDisposeListening = false;
-				
-            }
-			
-			else
-			
-            {
-			
-                VBuilder.reduceNoiseAndCapture(pbSpectrogram);
-				
-            }
-
+lbResult.Text = VSpeech.WFGetResult;
 ```
 ### Dựa trên bản ghi âm trên WinForm ###
 #### Ví dụ ####
@@ -205,7 +146,44 @@ btnStop.Enabled = false;
 
 ### WPF Real-time ###
 
-Xem thêm ví dụ [VoiceNET.Lib.WPF.Realtime](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.WPF.Realtime) để biết cách sử dụng trên WPF.
+Kéo thả vào giao diện WPF Application:
+
+- **Label**: lbResult
+
+Trước MainWindow()
+
+```cs
+
+public DispatcherTimer tmGetResult = new DispatcherTimer();
+
+```
+
+Trong MainWindow()
+```cs
+tmGetResult.Interval = TimeSpan.FromSeconds(1);
+
+tmGetResult.Tick += tmGetResult_Tick;
+
+VBuilder.ModelPath("<your_model_path>");
+
+    if (VBuilder.loadModel())
+            
+	{
+
+        tmGetResult.Start();
+
+        VSpeech.WPFListener();
+
+    }
+	
+```
+
+Trong void tmGetResult_Tick
+```cs
+
+lbResult.Content = VSpeech.WPFGetResult;
+
+```
 
 ### WPF Recording ###
 

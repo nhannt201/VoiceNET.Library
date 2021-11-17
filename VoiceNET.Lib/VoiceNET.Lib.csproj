@@ -41,13 +41,13 @@
 	  
     <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
 	  
-    <PackageTags>VoiceNET.Library, Voice Command Control, Voice Recognition, voice recognition through image spectrogram, Spectrogram, ml.net, machine learning image classification, voice control, voice assistant, control web by voice</PackageTags>
+    <PackageTags>VoiceNET.Library, Voice Command Control, Voice Recognition, voice recognition through image spectrogram, Spectrogram, ml.net, machine learning image classification, voice control, voice assistant, control web by voice, machine learning, image classifiaction</PackageTags>
     
-	  <PackageReleaseNotes>Support WPF</PackageReleaseNotes>
+	  <PackageReleaseNotes>Optimized code, added QuickStart Winform Real-time syntax</PackageReleaseNotes>
 	  
     <DelaySign>True</DelaySign>
 	  
-    <Description>.NET Library makes it easy and fast to create Voice Command Control functionality. It helps develop software or web voice control in real-time. It free supports online and offline use.</Description>
+    <Description>.NET Library makes it easy and fast to create Voice Command Control functionality.  It helps develop voice control in real-time on software or the web. It free supports online and offline use.</Description>
 	  
     <AssemblyVersion></AssemblyVersion>
 	  
@@ -64,6 +64,8 @@
     <DebugType>portable</DebugType>
 	  	  
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  	  
+    <PlatformTarget>AnyCPU</PlatformTarget>
 	  
   </PropertyGroup>
 	<ItemGroup>

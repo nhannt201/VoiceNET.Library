@@ -38,10 +38,9 @@ namespace VoiceNET.Lib
          static ComboBox WPFcbDevice = new ComboBox();
 
          static int WPFpbSpec = defaultWidth;
-
         public static void getDevice(ComboBox cbDevice)
         {
-            if (NAudio.Wave.WaveIn.DeviceCount == 0) MessageBox.Show("No audio input devices found.\n\nThis program will now exit.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (!checkDevice()) MessageBox.Show("No audio input devices found.\n\nThis program will now exit.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
                 //Add device to Combobox
@@ -118,7 +117,9 @@ namespace VoiceNET.Lib
             int stepSize = fftSize / 20;
 
             listener?.Dispose();
+
             listener = new Listener(WPFcbDevice.SelectedIndex, sampleRate);
+
             spec = new SpectrogramGenerator(sampleRate, fftSize, stepSize);
            
         }
@@ -265,8 +266,12 @@ namespace VoiceNET.Lib
 
         public static string WPFGetResult => return_label; //Get text
 
+        public static string WFGetResult => return_label; //Get text
+
         public static void WPFListener()
         {
+            WPFgetDevice(); //Default Device
+
             WPFStartListening();
 
             WPFTimer_Listener = new System.Timers.Timer(100);
@@ -274,7 +279,7 @@ namespace VoiceNET.Lib
             WPFTimer_Listener.AutoReset = true;
             WPFTimer_Listener.Enabled = true;
 
-            WPFDisposeRam();
+            WPFDisposeRam(); 
         }
 
         static void WPFDisposeRam()
@@ -353,6 +358,24 @@ namespace VoiceNET.Lib
             }
         }
 
+
+        //Timer for WinForm - QuickStart
+
+        public static void WFListener()
+        {
+            WPFgetDevice(); //Same WPF
+
+            WPFStartListening(); //Same WPF
+
+            WPFTimer_Listener = new System.Timers.Timer(100);
+            WPFTimer_Listener.Elapsed += WPF_Listener;
+            WPFTimer_Listener.AutoReset = true;
+            WPFTimer_Listener.Enabled = true;
+
+            WPFDisposeRam(); //Same WPF
+        }
+
+        //End Timer for Winform QuickStart
         public static bool requestDisposeListening
         {
             get { return needDispose; }  

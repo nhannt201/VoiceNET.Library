@@ -37,7 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="VoiceNET.Library">
-      <Version>1.0.5</Version>
+      <Version>1.0.5.2</Version>
     </PackageReference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -56,7 +56,7 @@
     <PackageReference Include="Microsoft.ML.Vision" Version="1.5.2" />
     <PackageReference Include="NAudio" Version="2.0.0" />
     <PackageReference Include="SciSharp.TensorFlow.Redist" Version="1.14.0" />
-	<PackageReference Include="System.Drawing.Common" Version="5.0.3" />
+    <PackageReference Include="System.Drawing.Common" Version="5.0.3" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="frmConfig.cs">

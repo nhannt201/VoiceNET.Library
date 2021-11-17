@@ -31,17 +31,11 @@ namespace VoiceNET.Lib.WPF.Realtime
         {
             InitializeComponent();
 
+            //VoiceNET Library support WPF from v1.0.5 - Auto choose microphone default - can't custom - use .setVolume to set volume
+
             tmGetResult.Interval = TimeSpan.FromSeconds(1);
 
             tmGetResult.Tick += tmGetResult_Tick;
-
-            //Support WPF from v1.0.5
-
-            VBuilder.WPFgetDevice(); //Choose default microphone device
-
-            VBuilder.setVolume(80);
-
-            // Path in actual use - VBuilder.ModelPath(AppDomain.CurrentDomain.BaseDirectory + @"\MLModel.zip");
 
             VBuilder.ModelPath(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + @"\SampleModel\MLModel.zip");
 
@@ -52,7 +46,6 @@ namespace VoiceNET.Lib.WPF.Realtime
 
                 VSpeech.WPFListener();
 
-                this.Title = "Loaded!";
             }
 
         }
