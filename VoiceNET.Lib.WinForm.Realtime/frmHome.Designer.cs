@@ -46,6 +46,7 @@
             // tmGetResult
             // 
             this.tmGetResult.Enabled = true;
+			this.tmGetResult.Interval = 1;
             this.tmGetResult.Tick += new System.EventHandler(this.tmGetResult_Tick);
             // 
             // frmHome

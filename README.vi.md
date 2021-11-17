@@ -71,7 +71,7 @@ Install-Package VoiceNET.Library
 
 Kéo và thả vào giao diện Windows Forms:
 - **Label:** lbResult
-- **Timer:** tmGetResult (Interval=100)
+- **Timer:** tmGetResult (Interval=1)
 
 Trong Form_Load
 ```cs

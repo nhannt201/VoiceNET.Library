@@ -17,7 +17,7 @@ Install-Package VoiceNET.Library
 ### WinForm Real-time ###
 Drag and drop into the Windows Forms interface:
 - **Label:** lbResult
-- **Timer:** tmGetResult (Interval=100)
+- **Timer:** tmGetResult (Interval=1)
 
 In Form_Load
 ```cs
