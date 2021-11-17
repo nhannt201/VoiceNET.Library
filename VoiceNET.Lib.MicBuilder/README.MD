@@ -1,241 +1,55 @@
 # VoiceNET Library
+## MicBuilder Model Generator
+### Video tutorial ###
+<div align="center">
 
-[![Nuget](https://img.shields.io/nuget/v/VoiceNET.Library?label=NuGet&logo=nuget)](https://www.nuget.org/packages/VoiceNET.Library/)
-## Free Voice Command Control Library
+[![MicBuilder Video Tutorial](https://img.youtube.com/vi/4YJ2BpDv_FI/0.jpg)](https://www.youtube.com/watch?v=4YJ2BpDv_FI)
+
+MicBuilder Video Tutorial
+
+</div>
+
 ## Introduce
-**VoiceNET Library** makes it easy and fast to create Voice Command Control functionality through Label Prediction. It helps develop voice control in real-time on software or the web. It free supports online and offline use. This is a community development project to help people access voice recognition technology more easily.
-
-It's a research project from the FPT Edu Research Festival 2021 contest.
-
-<div align="center">
-
-![](https://i.imgur.com/9FTHK3r.png)
-
-***VoiceNET Library***
-
-</div>
-
-## How its work?
-Using ML.NET and Spectrogram libraries, the **VoiceNET library** works by converting your voice into a spectrogram. From there, proceed to use the Image Classification function in the ML.NET library to mark the label.
-
-<div align="center">
-
-![](https://i.imgur.com/5VH73ri.png)
-
-How the VoiceNET Library works
-
-</div>
-
-## Features
-
-- Voice Command Control in real time.
-- Voice Command Control based on recording.
-
-## Advantage
-- Easily integrate the library into your program.
-- The code has been simple for every to use.
-- It can be used both online and offline.
-- It can be used for any communication language in the world.
-- It's free.
-## Disadvantage
-- It takes a long time to create a Model for the library
-- The time it takes to load the model into the program can be slow.
-- There's still an error rate when labeling recognition.
-
-## Installation
-
-Once you have an app, you can install the VoiceNET Library NuGet package from the .NET Core CLI using:
-```
-dotnet add package VoiceNET.Library
-```
-or from the NuGet Package Manager:
-```
-Install-Package VoiceNET.Library
-```
-## Quickstart
-### WinForm Real-time ###
-
-
-#### Example ####
-
-<div align="center">
-
-![](https://raw.githubusercontent.com/nhannt201/VoiceNET.Library/gh-pages/VoiceNET_Library__Demo_Product__Libum.gif)
-
-***A real-time voice-controlled image gallery***
-
-</div>
-
-### How to make a demo in real-time? ###
-
-Drag and drop into the Windows Forms interface:
-- **Label:** lbResult
-- **Timer:** tmGetResult (Interval=100)
-
-In Form_Load
-```cs
-VBuilder.ModelPath("<your_model_path>");
-
-if (VBuilder.loadModel())
-    
-{
-	tmGetResult.Start();
-	VSpeech.WFListener();
-            
-}
-```
-
-In tmGetResult
-```cs
-lbResult.Text = VSpeech.WFGetResult;
-```
-
-### WinForm Recording ###
-#### Example ####
-
-<div align="center">
-
-![](https://raw.githubusercontent.com/nhannt201/VoiceNET.Library/gh-pages/VoiceNET_Library__Demo_Product__Recording.gif)
-
-***Example of command label recognition by recording***
-
-</div>
-
-### How to make a demo in recording? ###
-
-Drag and drop into the Windows Forms interface:
-- **Button**: btnRecord, btnStop
-- **Label**: lbResult
-
-Form_Load
-```cs
-
-VBuilder.ModelPath("<your_model_path>");
-
- if(VBuilder.loadModel())
- 
-    //do something after Load Model
-	
- else
- 
-   //do something if fail
-   
-```
-btnRecord_Click
-```cs
-
-VBuilder.Record();
-
-btnStop.Enabled = true;
-
-btnRecord.Enabled = false;
-
-```
-btnStop
-```cs
-
-VBuilder.Stop();
-
-lbResult.Text = VBuilder.Result(true);
-
-btnRecord.Enabled = true;
-
-btnStop.Enabled = false;
-
-```
-
-### WPF Real-time ###
-
-Drag and drop into the WPF Application interface:
-
-- **Label**: lbResult
-
-Before MainWindow()
-
-```cs
-
-public DispatcherTimer tmGetResult = new DispatcherTimer();
-
-```
-
-In MainWindow()
-```cs
-tmGetResult.Interval = TimeSpan.FromSeconds(1);
-
-tmGetResult.Tick += tmGetResult_Tick;
-
-VBuilder.ModelPath("<your_model_path>");
-
-    if (VBuilder.loadModel())
-            
-	{
-
-        tmGetResult.Start();
-
-        VSpeech.WPFListener();
-
-    }
-	
-```
-
-In void tmGetResult_Tick
-```cs
-
-lbResult.Content = VSpeech.WPFGetResult;
-
-```
-
-### WPF Recording ###
-
-See the example in [VoiceNET.Lib.WPF.Record](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.WPF.Record) for more how to use it.
-
-### Web ASP.NET MVC ###
-
-See the example in [VoiceNET.Lib.Web.AspNet](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.Web.AspNet) for more how to use it.
-
-## How to create a Model?
-Use the included [MicBuilder](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.MicBuilder/README.MD) program to build an MLModel.zip file for your Dataset.
-
-
-<div align="center">
-
-![](https://raw.githubusercontent.com/nhannt201/VoiceNET.Library/gh-pages/VoiceNET_Library__MicBuilder__Create_a_Model.gif)
-
-***MicBuilder Model Builder***
-
-</div>
-
-## Setting
-
-- **Microphone volume adjustment**:
-
-```cs
-VBuilder.setVolume(80);
-```
+This is a tool to help create a Model file for the ***VoiceNET library***
+## Guide
+### Step 1 - Settings
+- Open ***MicBuilder*** Software
+- Click ***"Settings"*** to select your dataset folder, create a new one if you don't have one.
 
 Ambient noise reduction setting
 
-- ***Min Value***:  Adjust the minimum volume level to perform capturing. Input sound that is less than this portion will be considered noise. The default value is 10%.
-```cs
-VBuilder.setMinVolume(10); 
-```
+- ***Min Value***: Adjust the minimum volume level to perform capturing. Input sound that is less than this portion will be considered noise.
 - ***Continuous***: How long does the sound stay continuous when Sound Input > Min Volume. The default value is 250 milliseconds.
-```cs
-VBuilder.setMicTime(250);
-```
- 
 
-## Resources
-* [FftSharp](https://www.nuget.org/packages/FftSharp/)
-* [Microsoft.ML](https://www.nuget.org/packages/Microsoft.ML/)
-* [Microsoft.ML.ImageAnalytics](https://www.nuget.org/packages/Microsoft.ML.ImageAnalytics/)
-* [Microsoft.ML.Vision](https://www.nuget.org/packages/Microsoft.ML.Vision/)
-* [NAudio](https://www.nuget.org/packages/NAudio/)
-* [SciSharp.TensorFlow.Redist](https://www.nuget.org/packages/SciSharp.TensorFlow.Redist/)
-## LICENSE
-**MIT LICENSE**
-* [Spectrogram](https://github.com/swharden/Spectrogram/) - is a .NET library for creating spectrograms from pre-recorded signals or live audio from the sound card.
-* [ML.NET](https://github.com/dotnet/machinelearning) - is a cross-platform open-source machine learning (ML) framework for .NET.
-* [VoiceNET Library](https://github.com/nhannt201/VoiceNET.Library/blob/main/LICENSE) - is a .NET Library makes it easy and fast to create Voice Command Control functionality.
+Click ***"Save & Close"***
 
+### Step 2 - Monitor
+- Click ***"Monitor"***
+- Enter Label Name: Label names must be Latin alphabet characters, written  consecutively without spaces or special characters, and  have a maximum length of 255 characters.  Example: turnoffthecomputer, call119, closethewindows.
 
+***Nota bene:*** In order to create a diverse dataset and reduce the rate of misidentification, you should say it 10 times at each microphone volume level from 10% or 20% to 90%. On the MicBuilder interface, adjust the Microphone Volume.
+
+***Follow below table:***
+![](https://raw.githubusercontent.com/nhannt201/VoiceNET.Library/gh-pages/note.png)
+
+- Start speaking content related to the entered label name until you see the captured image in the MicBuilder interface.  Then, click "Add Image Label". Continue doing this until you have the quantity you want. Add as much data as possible and each label should have an equal number of times.
+
+When finished, click ***"x"*** to close the window
+
+### Step 3 - Train Data
+- Click ***"Train Data"***
+
+Model creation will happen automatically, please wait until it's done. When the "Train Data" process ends, a window will be displayed for you to re-evaluate the Model by repeating the content you have labeled with the previous name. When the re-evaluation is still not good, continue to click "Monitor" to add data and re-train data.
+
+### Final
+
+The ***MLModel.zip*** file will be created inside your Dataset folder. Use it with the ***VoiceNET Library*** to build Voice Command Control for your software.
+
+### How to use Model from MicBuilder? ###
+<div align="center">
+
+[![How to use Model from MicBuilder for real-time Voice Command Control function?](https://img.youtube.com/vi/0Yr47TZQ8FI/0.jpg)](https://www.youtube.com/watch?v=0Yr47TZQ8FI)
+
+How to use Model from MicBuilder for real-time Voice Command Control function?
+
+</div>
