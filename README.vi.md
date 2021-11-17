@@ -203,6 +203,25 @@ Dùng phần mềm [MicBuilder](https://github.com/nhannt201/VoiceNET.Library/tr
 
 ***MicBuilder Model Builder***
 
+## Thiết lập cấu hình
+
+- **Điều chỉnh âm lượng Microphone**:
+
+```cs
+VBuilder.setVolume(80);
+```
+
+Cài đặt giảm tiếng ồn và tạp âm
+
+- ***Min Value***:  Điều chỉnh mức âm lượng tối thiểu để thực hiện chụp. Âm thanh đầu vào nhỏ hơn phần này sẽ được coi là tiếng ồn. Giá trị mặc định là 10%.
+```cs
+VBuilder.setMinVolume(10); 
+```
+- ***Continuous***: Âm thanh duy trì liên tục trong bao lâu khi Đầu vào âm thanh> Min Value. Giá trị mặc định là 250 mili giây.
+```cs
+VBuilder.setMicTime(250);
+```
+
 </div>
 
 ## Tài nguyên
