@@ -44,7 +44,7 @@ namespace VoiceNET.Lib.WPF.Realtime
 
                 tmGetResult.Start();
 
-                VSpeech.WPFListener();
+                VBuilder.WPFListener();
 
             }
 
@@ -52,7 +52,7 @@ namespace VoiceNET.Lib.WPF.Realtime
 
         void tmGetResult_Tick(object sender, EventArgs e)
         {
-            lbResult.Content = VSpeech.WPFGetResult;
+            lbResult.Content = VBuilder.WPFGetResult;
         }
 
     }

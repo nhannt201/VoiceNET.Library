@@ -17,8 +17,6 @@ namespace VoiceNET.Lib.WinForm.Realtime
         {
             InitializeComponent();
 
-            VSpeech.getDevice();
-
             //Auto choose default microphone device. You can set Volume with .setVolume
 
             VBuilder.ModelPath(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName + @"\SampleModel\MLModel.zip");
@@ -26,13 +24,13 @@ namespace VoiceNET.Lib.WinForm.Realtime
             if (VBuilder.loadModel())
             {
                 tmGetResult.Start();
-                VSpeech.WFListener();
+                VBuilder.WFListener();
             }
         }
 
         private void tmGetResult_Tick(object sender, EventArgs e)
         {
-            lbResult.Text = VSpeech.WPFGetResult;
+            lbResult.Text = VBuilder.WPFGetResult;
         }
     }
 }

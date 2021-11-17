@@ -17,11 +17,11 @@ namespace VoiceNET.Lib.MicBuilder
         {
             InitializeComponent();
 
-            txtPathFolder.Text = VSpeech.getPathDataset();
+            txtPathFolder.Text = VBuilder.getPathDataset();
 
-            hsMicCont.Value = VSpeech.getMicTime();
+            hsMicCont.Value = VBuilder.getMicTime();
 
-            hsMinValue.Value = VSpeech.getMinVolume();
+            hsMinValue.Value = VBuilder.getMinVolume();
 
             lbMinVolume.Text = hsMinValue.Value.ToString() + "%";
 
@@ -34,7 +34,7 @@ namespace VoiceNET.Lib.MicBuilder
 
             lbMinVolume.Text = hsMinValue.Value.ToString() + "%";
 
-            VSpeech.setMinVolume(hsMinValue.Value);
+            VBuilder.setMinVolume(hsMinValue.Value);
 
         }
 
@@ -43,7 +43,7 @@ namespace VoiceNET.Lib.MicBuilder
 
             lbTimeCont.Text = hsMicCont.Value.ToString() + "ms";
 
-            VSpeech.setMicTime(hsMicCont.Value);
+            VBuilder.setMicTime(hsMicCont.Value);
 
         }
 
@@ -62,7 +62,7 @@ namespace VoiceNET.Lib.MicBuilder
 
                     txtPathFolder.Text =(fbd.SelectedPath);
 
-                    VSpeech.setPathDataset(txtPathFolder.Text);
+                    VBuilder.setPathDataset(txtPathFolder.Text);
 
                 }
             }
@@ -81,11 +81,11 @@ namespace VoiceNET.Lib.MicBuilder
 
             }
 
-            VSpeech.setPathDataset(txtPathFolder.Text);
+            VBuilder.setPathDataset(txtPathFolder.Text);
 
-            VSpeech.setMinVolume(hsMinValue.Value);
+            VBuilder.setMinVolume(hsMinValue.Value);
 
-            VSpeech.setMicTime(hsMicCont.Value);
+            VBuilder.setMicTime(hsMicCont.Value);
 
             Hide();
         }

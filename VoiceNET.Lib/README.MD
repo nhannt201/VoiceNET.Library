@@ -27,14 +27,14 @@ if (VBuilder.loadModel())
     
 {
 	tmGetResult.Start();
-	VSpeech.WFListener();
+	VBuilder.WFListener();
             
 }
 ```
 
 In tmGetResult
 ```cs
-lbResult.Text = VSpeech.WFGetResult;
+lbResult.Text = VBuilder.WFGetResult;
 ```
 
 ### WinForm Recording ###
@@ -98,7 +98,7 @@ VBuilder.ModelPath("<your_model_path>");
 
         tmGetResult.Start();
 
-        VSpeech.WPFListener();
+        VBuilder.WPFListener();
 
     }
 	

@@ -21,7 +21,7 @@
 	  
     <PackageId>VoiceNET.Library</PackageId>
 	  
-    <Version>1.0.5.2</Version>
+    <Version>1.0.6.6</Version>
 	  
     <Product>VoiceNET.Library</Product>
 
@@ -43,7 +43,7 @@
 	  
     <PackageTags>VoiceNET.Library, Voice Command Control, Voice Recognition, voice recognition through image spectrogram, Spectrogram, ml.net, machine learning image classification, voice control, voice assistant, control web by voice, machine learning, image classifiaction</PackageTags>
     
-	  <PackageReleaseNotes>Optimized code, added QuickStart Winform Real-time syntax</PackageReleaseNotes>
+	  <PackageReleaseNotes>Optimized code</PackageReleaseNotes>
 	  
     <DelaySign>True</DelaySign>
 	  

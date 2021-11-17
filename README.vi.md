@@ -81,14 +81,14 @@ if (VBuilder.loadModel())
     
 {
 	tmGetResult.Start();
-	VSpeech.WFListener();
+	VBuilder.WFListener();
             
 }
 ```
 
 Trong tmGetResult
 ```cs
-lbResult.Text = VSpeech.WFGetResult;
+lbResult.Text = VBuilder.WFGetResult;
 ```
 ### Dựa trên bản ghi âm trên WinForm ###
 #### Ví dụ ####
@@ -172,7 +172,7 @@ VBuilder.ModelPath("<your_model_path>");
 
         tmGetResult.Start();
 
-        VSpeech.WPFListener();
+        VBuilder.WPFListener();
 
     }
 	
@@ -181,7 +181,7 @@ VBuilder.ModelPath("<your_model_path>");
 Trong void tmGetResult_Tick
 ```cs
 
-lbResult.Content = VSpeech.WPFGetResult;
+lbResult.Content = VBuilder.WPFGetResult;
 
 ```
 

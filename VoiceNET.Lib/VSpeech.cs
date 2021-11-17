@@ -38,7 +38,7 @@ namespace VoiceNET.Lib
          static ComboBox WPFcbDevice = new ComboBox();
 
          static int WPFpbSpec = defaultWidth;
-        public static void getDevice(ComboBox cbDevice)
+        protected static void getDevice(ComboBox cbDevice)
         {
             if (!checkDevice()) MessageBox.Show("No audio input devices found.\n\nThis program will now exit.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
@@ -51,8 +51,8 @@ namespace VoiceNET.Lib
             }
         }
 
-        public static void getDevice() => WPFgetDevice(); //Default device
-        public static void WPFgetDevice() //WPF
+        protected static void getDevice() => WPFgetDevice(); //Default device
+        protected static void WPFgetDevice() //WPF
         {
                 //Add device to Combobox
                 WPFcbDevice.Items.Clear();
@@ -61,9 +61,9 @@ namespace VoiceNET.Lib
                 WPFcbDevice.SelectedIndex = 0; //Default device
             
         }
-        public static bool checkDevice() => (NAudio.Wave.WaveIn.DeviceCount == 0) ? false : true;
+        protected static bool checkDevice() => (NAudio.Wave.WaveIn.DeviceCount == 0) ? false : true;
 
-        public static void setVolume(int volume)
+        protected static void setVolume(int volume)
         {
             int waveInDeviceNumber = 0;
             var mixerLine = new MixerLine((IntPtr)waveInDeviceNumber,
@@ -81,7 +81,7 @@ namespace VoiceNET.Lib
             volumeControl.Percent = volume; // you are setting volume here, as a percentage.
         }
 
-        public static int getVolume()
+        protected static int getVolume()
         {
             int waveInDeviceNumber = 0;
             var mixerLine = new MixerLine((IntPtr)waveInDeviceNumber,
@@ -99,7 +99,7 @@ namespace VoiceNET.Lib
 
        
 
-        public static void StartListening(ComboBox cbDevice) //Choose microphone to listening
+        protected static void StartListening(ComboBox cbDevice) //Choose microphone to listening
         {
             int sampleRate = 6000;
             int fftSize = 512;// 1 << (9 + cbFftSize.SelectedIndex);
@@ -126,9 +126,9 @@ namespace VoiceNET.Lib
 
         static int valueInput = 0;
 
-        public static int getAmplitude => valueInput;
- 
-        public static Bitmap ListenTimer(int picWidth)
+        protected static int getAmplitude => valueInput;
+
+        protected static Bitmap ListenTimer(int picWidth)
         {
             double[] newAudio = listener.GetNewAudio();
             spec.Add(newAudio, process: false);
@@ -170,22 +170,22 @@ namespace VoiceNET.Lib
 
         }
 
-        public static void ListenDispose()
+        protected static void ListenDispose()
         {
             listener.DisposeOnly();
         }
 
-        public static void saveImage(string fileName, double intensity = 1, bool dB = false, double dBScale = 1, bool roll = false)
+        protected static void saveImage(string fileName, double intensity = 1, bool dB = false, double dBScale = 1, bool roll = false)
         {
             spec.SaveImage(fileName, intensity, dB, dBScale, roll);
         }
 
-        public static Bitmap getImage(double intensity = 1, bool dB = false, double dBScale = 1, bool roll = false)
+        protected static Bitmap getImage(double intensity = 1, bool dB = false, double dBScale = 1, bool roll = false)
         {
             return spec.GetBitmap( intensity,  dB,  dBScale,  roll);
         }
 
-        public static Bitmap getImageTaken(PictureBox picWantTake)
+        protected static Bitmap getImageTaken(PictureBox picWantTake)
         {
             picWantTake.Width = defaultWidth;
             return spec.GetBitmap(0.25);
@@ -193,21 +193,21 @@ namespace VoiceNET.Lib
 
 
         //Setting MicBuilder
-        public static void setMinVolume(int volume) => minVolume = volume;
+        protected static void setMinVolume(int volume) => minVolume = volume;
 
 
-        public static int getMinVolume() =>  minVolume;
+        protected static int getMinVolume() =>  minVolume;
 
-        public static void setMicTime(int time_ms) => micTime = time_ms;
+        protected static void setMicTime(int time_ms) => micTime = time_ms;
 
-        public static int getMicTime() => micTime;
+        protected static int getMicTime() => micTime;
 
-        public static void setPathDataset(string pathDt) => pathDataset = pathDt;
+        protected static void setPathDataset(string pathDt) => pathDataset = pathDt;
 
-        public static string getPathDataset() => pathDataset;
+        protected static string getPathDataset() => pathDataset;
 
         //Xu ly thiet lap giam tieng on
-        public static void reduceNoiseAndCapture(PictureBox pic, bool devtrainer = false)
+        protected static void reduceNoiseAndCapture(PictureBox pic, bool devtrainer = false)
         {
             //Rõ ràng volume mic lớn thì khả năng nhận dạng càng cao tuy nhiên môi trường phải không ồn   
 
@@ -264,11 +264,11 @@ namespace VoiceNET.Lib
 
         static string return_label =  "";
 
-        public static string WPFGetResult => return_label; //Get text
+        protected static string WPFGetResult => return_label; //Get text
 
-        public static string WFGetResult => return_label; //Get text
+        protected static string WFGetResult => return_label; //Get text
 
-        public static void WPFListener()
+        protected static void WPFListener()
         {
             WPFgetDevice(); //Default Device
 
@@ -292,7 +292,7 @@ namespace VoiceNET.Lib
 
         static void WPF_Listener(Object source, ElapsedEventArgs e)
         {
-            if (VBuilder.requestDisposeListening)
+            if (requestDisposeListening)
 
             {
                 WPFpbSpec = defaultWidth;
@@ -301,7 +301,7 @@ namespace VoiceNET.Lib
 
                 WPFStartListening(); //Renew Lisener
 
-                VBuilder.requestDisposeListening = false;
+                requestDisposeListening = false;
 
             }
 
@@ -309,7 +309,7 @@ namespace VoiceNET.Lib
 
             {
 
-                VBuilder.WPFreduceNoiseAndCapture();
+                WPFreduceNoiseAndCapture();
 
             }
 
@@ -361,22 +361,13 @@ namespace VoiceNET.Lib
 
         //Timer for WinForm - QuickStart
 
-        public static void WFListener()
+        protected static void WFListener()
         {
-            WPFgetDevice(); //Same WPF
-
-            WPFStartListening(); //Same WPF
-
-            WPFTimer_Listener = new System.Timers.Timer(100);
-            WPFTimer_Listener.Elapsed += WPF_Listener;
-            WPFTimer_Listener.AutoReset = true;
-            WPFTimer_Listener.Enabled = true;
-
-            WPFDisposeRam(); //Same WPF
+            WPFListener(); //Same WPF
         }
 
         //End Timer for Winform QuickStart
-        public static bool requestDisposeListening
+        protected static bool requestDisposeListening
         {
             get { return needDispose; }  
             set { needDispose = value; } 
@@ -408,7 +399,7 @@ namespace VoiceNET.Lib
 
         }
 
-        public static void addImageLabel(string filename) //For train data
+        protected static void addImageLabel(string filename) //For train data
         {
             //Yêu cầu trong folder phải có subfolder name theo label được nhập sau đó click nút MakeData để save data vừa nói lại vào đây
 

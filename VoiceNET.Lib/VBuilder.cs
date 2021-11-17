@@ -26,8 +26,71 @@ namespace VoiceNET.Lib
 
         private static bool isTrainData = false;
 
-        public static object VSpeech { get; set; }
+       // public static object VSpeech { get; set; }
 
+        //Call from VSpeech
+        public static new void getDevice(ComboBox cbDevice) => VSpeech.getDevice(cbDevice);
+
+        public static new void getDevice() => VSpeech.getDevice();
+
+        public static new void WPFgetDevice() => VSpeech.WPFgetDevice();
+
+        public static new bool checkDevice() => VSpeech.checkDevice();
+
+        public static new void setVolume(int volume) => VSpeech.setVolume(volume);
+
+        public static new int getVolume() =>   VSpeech.getVolume();
+
+        public static new void StartListening(ComboBox cbDevice) => VSpeech.StartListening(cbDevice);
+
+        public static new int getAmplitude => VSpeech.getAmplitude;
+
+        public static new Bitmap ListenTimer(int picWidth) => VSpeech.ListenTimer(picWidth);
+
+        public static new void ListenDispose() => VSpeech.ListenDispose();
+
+        public static new void saveImage(string fileName, double intensity = 1, bool dB = false, double dBScale = 1, bool roll = false) => VSpeech.saveImage(fileName, intensity, dB, dBScale, roll);
+
+        public static new Bitmap getImage(double intensity = 1, bool dB = false, double dBScale = 1, bool roll = false) => VSpeech.getImage(intensity, dB, dBScale, roll);
+
+        public static new Bitmap getImageTaken(PictureBox picWantTake) => VSpeech.getImageTaken(picWantTake);
+
+        public static new void setMinVolume(int volume) => VSpeech.setMinVolume(volume);
+
+        public static new int getMinVolume() => VSpeech.getMinVolume();
+
+        public static new void setMicTime(int time_ms) => VSpeech.setMicTime(time_ms);
+
+        public static new int getMicTime() => VSpeech.getMicTime();
+
+        public static new void setPathDataset(string pathDt) => VSpeech.setPathDataset(pathDt);
+
+        public static new string getPathDataset() => VSpeech.getPathDataset();
+
+        public static new void reduceNoiseAndCapture(PictureBox pic, bool devtrainer = false) => VSpeech.reduceNoiseAndCapture(pic, devtrainer);
+
+        public static new string WPFGetResult => VSpeech.WPFGetResult;
+
+        public static new string WFGetResult => VSpeech.WFGetResult;
+
+        public static new void WPFListener() => VSpeech.WPFListener();
+
+        public static new void WFListener() => VSpeech.WFListener();
+
+        public static new bool requestDisposeListening
+        {
+            
+                get { return VSpeech.requestDisposeListening; }
+                set { VSpeech.requestDisposeListening = value; }
+            
+        }
+
+        public static new void addImageLabel(string filename) => VSpeech.addImageLabel(filename);
+
+
+
+
+        //End call from VSpeech
         public static async void startTrainData()
         {
             if(isAlreadyTrainData())
@@ -270,6 +333,7 @@ namespace VoiceNET.Lib
             File.WriteAllText(folder_dataset + @"\train_list_data.tsv", csv.ToString());
         }
 
-   
-    }
+
+
+        }
 }
