@@ -208,7 +208,7 @@ Dùng phần mềm [MicBuilder](https://github.com/nhannt201/VoiceNET.Library/tr
 
 ## Thiết lập cấu hình
 
-- **Điều chỉnh âm lượng Microphone**:
+**Điều chỉnh âm lượng Microphone**:
 
 ```cs
 VBuilder.setVolume(80);

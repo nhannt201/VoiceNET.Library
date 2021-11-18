@@ -229,7 +229,7 @@ Use the included [MicBuilder](https://github.com/nhannt201/VoiceNET.Library/tree
 
 # Setting
 
-- **Microphone volume adjustment**:
+**Microphone volume adjustment**:
 
 ```cs
 VBuilder.setVolume(80);
