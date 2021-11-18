@@ -1,5 +1,5 @@
 ## Introduce
-The **VoiceNET Library** makes it easy to integrate Voice Command Control functionality into your programs based on Label Prediction. Voice Command Control commands in the library are fixed based on a pre-assigned label.
+**VoiceNET Library** makes it easy and fast to create Voice Command Control functionality through Label Prediction. It helps develop voice control in real-time on software or the web. It free supports online and offline use. This is a community development project to help people access voice recognition technology more easily.
  
 This is a research project from the FPT Edu Research Festival 2021 contest. 
 
@@ -50,102 +50,66 @@ or from the NuGet Package Manager:
 Install-Package VoiceNET.Library
 ```
 ## Quickstart
+## WinForm Real-time
 
-### Real-time ###
+
+#### Example
+
+<div align="center">
+
+![](https://raw.githubusercontent.com/nhannt201/VoiceNET.Library/gh-pages/VoiceNET_Library__Demo_Product__Libum.gif)
+
+***A real-time voice-controlled image gallery***
+
+</div>
+
+### How to make a demo in real-time?
+
 Drag and drop into the Windows Forms interface:
-- **Picturebox:** pbSpectrogram and picTake with Width=400
-- **Combobox:** cbDevice
 - **Label:** lbResult
-- **Timer:** tmLisener (Interval 100, Enabled=True) and tmDisposeRam (Interval 1, Enabled=True)
+- **Timer:** tmGetResult (Interval=1)
 
 In Form_Load
 ```cs
-
- VBuilder.getDevice(cbDevice);
- 
- VBuilder.setVolume(80);
- 
- VBuilder.ModelPath("<your_model_path>");
- 
- if(VBuilder.loadModel())
- 
-    //do something after Load Model
+VBuilder.ModelPath("<your_model_path>");
+if (VBuilder.loadModel())
     
- else
- 
-   //do something if fail
-   
-```
-cbDevice_SelectedIndexChanged
-```cs
-StartListening();
-```
-Create two private void: StartListening() and DisposeImage().
- 
-StartListening() 
-```cs
-
-DisposeImage();
-
-VBuilder.StartListening( cbDevice);
-
-```
-DisposeImage()
-```cs
-
-pbSpectrogram.Image?.Dispose();
-
-pbSpectrogram.Image = null;
-
-```
-tmDisposeRam_Tick
-```cs
-
-DisposeImage();
-
-pbSpectrogram.Image = VBuilder.ListenTimer(pbSpectrogram.Width);
-
-```
-tmLisener_Tick
-```cs
-
-  if(VBuilder.requestDisposeListening)
-  
-            {
+{
+	tmGetResult.Start();
+	VBuilder.WFListener();
             
-                picTake.Image = VBuilder.getImageTaken(pbSpectrogram);
-
-                lbResult.Text = VBuilder.Result();
-
-                StartListening(); //Renew Lisener
-
-                VBuilder.requestDisposeListening = false;
-                
-            }
-            
-            else
-            
-            {
-            
-                VBuilder.reduceNoiseAndCapture(pbSpectrogram);
-                
-            }
-
+}
 ```
-### Recording ###
+
+In tmGetResult
+```cs
+lbResult.Text = VBuilder.WFGetResult;
+```
+
+## WinForm Recording
+#### Example
+
+<div align="center">
+
+![](https://raw.githubusercontent.com/nhannt201/VoiceNET.Library/gh-pages/VoiceNET_Library__Demo_Product__Recording.gif)
+
+***Example of command label recognition by recording***
+
+</div>
+
+### How to make a demo in recording?
+
 Drag and drop into the Windows Forms interface:
 - **Button**: btnRecord, btnStop
 - **Label**: lbResult
 
 Form_Load
 ```cs
-
 VBuilder.ModelPath("<your_model_path>");
-
  if(VBuilder.loadModel())
  
     //do something after Load Model
-    
+	
  else
  
    //do something if fail
@@ -153,41 +117,96 @@ VBuilder.ModelPath("<your_model_path>");
 ```
 btnRecord_Click
 ```cs
-
 VBuilder.Record();
-
 btnStop.Enabled = true;
-
 btnRecord.Enabled = false;
-
 ```
 btnStop
 ```cs
-
 VBuilder.Stop();
-
 lbResult.Text = VBuilder.Result(true);
-
 btnRecord.Enabled = true;
-
 btnStop.Enabled = false;
-
 ```
-## How to create a Model?
+
+## WPF Real-time
+
+Drag and drop into the WPF Application interface:
+
+- **Label**: lbResult
+
+Before MainWindow()
+
+```cs
+public DispatcherTimer tmGetResult = new DispatcherTimer();
+```
+
+In MainWindow()
+```cs
+tmGetResult.Interval = TimeSpan.FromSeconds(1);
+tmGetResult.Tick += tmGetResult_Tick;
+VBuilder.ModelPath("<your_model_path>");
+    if (VBuilder.loadModel())
+            
+	{
+        tmGetResult.Start();
+        VBuilder.WPFListener();
+    }
+	
+```
+
+In void tmGetResult_Tick
+```cs
+lbResult.Content = VBuilder.WPFGetResult;
+```
+
+## WPF Recording
+
+See the example in [VoiceNET.Lib.WPF.Record](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.WPF.Record) for more how to use it.
+
+## Web ASP.NET MVC
+
+See the example in [VoiceNET.Lib.Web.AspNet](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.Web.AspNet) for more how to use it.
+# How to create a Model?
 Use the included [MicBuilder](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.MicBuilder/README.MD) program to build an MLModel.zip file for your Dataset.
 
-## Resources
+
+<div align="center">
+
+![](https://raw.githubusercontent.com/nhannt201/VoiceNET.Library/gh-pages/VoiceNET_Library__MicBuilder__Create_a_Model.gif)
+
+***MicBuilder Model Builder***
+
+</div>
+
+# Setting
+
+- **Microphone volume adjustment**:
+
+```cs
+VBuilder.setVolume(80);
+```
+
+Ambient noise reduction setting
+
+- ***Min Value***:  Adjust the minimum volume level to perform capturing. Input sound that is less than this portion will be considered noise. The default value is 10%.
+```cs
+VBuilder.setMinVolume(10); 
+```
+- ***Continuous***: How long does the sound stay continuous when Sound Input > Min Volume. The default value is 250 milliseconds.
+```cs
+VBuilder.setMicTime(250);
+```
+
+# Resources
 * [FftSharp](https://www.nuget.org/packages/FftSharp/)
 * [Microsoft.ML](https://www.nuget.org/packages/Microsoft.ML/)
 * [Microsoft.ML.ImageAnalytics](https://www.nuget.org/packages/Microsoft.ML.ImageAnalytics/)
 * [Microsoft.ML.Vision](https://www.nuget.org/packages/Microsoft.ML.Vision/)
 * [NAudio](https://www.nuget.org/packages/NAudio/)
 * [SciSharp.TensorFlow.Redist](https://www.nuget.org/packages/SciSharp.TensorFlow.Redist/)
-
-## LICENSE
-
+# License
 **MIT LICENSE**
 * [Spectrogram](https://github.com/swharden/Spectrogram/) - is a .NET library for creating spectrograms from pre-recorded signals or live audio from the sound card.
 * [ML.NET](https://github.com/dotnet/machinelearning) - is a cross-platform open-source machine learning (ML) framework for .NET.
-
-
+* [VoiceNET Library](https://github.com/nhannt201/VoiceNET.Library/blob/main/LICENSE) - is a .NET Library makes it easy and fast to create Voice Command Control functionality.
