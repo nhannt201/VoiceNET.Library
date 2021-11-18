@@ -178,7 +178,7 @@ Use the included [MicBuilder](https://github.com/nhannt201/VoiceNET.Library/tree
 
 # Setting
 
-- **Microphone volume adjustment**:
+**Microphone volume adjustment**:
 
 ```cs
 VBuilder.setVolume(80);
@@ -196,14 +196,18 @@ VBuilder.setMicTime(250);
 ```
 
 # Resources
+
 * [FftSharp](https://www.nuget.org/packages/FftSharp/)
 * [Microsoft.ML](https://www.nuget.org/packages/Microsoft.ML/)
 * [Microsoft.ML.ImageAnalytics](https://www.nuget.org/packages/Microsoft.ML.ImageAnalytics/)
 * [Microsoft.ML.Vision](https://www.nuget.org/packages/Microsoft.ML.Vision/)
 * [NAudio](https://www.nuget.org/packages/NAudio/)
 * [SciSharp.TensorFlow.Redist](https://www.nuget.org/packages/SciSharp.TensorFlow.Redist/)
+
 # License
+
 **MIT LICENSE**
+
 * [Spectrogram](https://github.com/swharden/Spectrogram/) - is a .NET library for creating spectrograms from pre-recorded signals or live audio from the sound card.
 * [ML.NET](https://github.com/dotnet/machinelearning) - is a cross-platform open-source machine learning (ML) framework for .NET.
 * [VoiceNET Library](https://github.com/nhannt201/VoiceNET.Library/blob/main/LICENSE) - is a .NET Library makes it easy and fast to create Voice Command Control functionality.
