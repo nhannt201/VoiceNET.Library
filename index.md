@@ -57,7 +57,7 @@ Install-Package VoiceNET.Library
 
 <div align="center">
 
-![](https://raw.githubusercontent.com/nhannt201/VoiceNET.Library/gh-pages/VoiceNET_Library__Demo_Product__Libum.gif)
+<img src="https://raw.githubusercontent.com/nhannt201/VoiceNET.Library/gh-pages/VoiceNET_Library__Demo_Product__Libum.gif" alt="VoiceNET Library" />
 
 ***A real-time voice-controlled image gallery***
 
@@ -90,8 +90,9 @@ lbResult.Text = VBuilder.WFGetResult;
 #### Example
 
 <div align="center">
+	
+<img src="https://raw.githubusercontent.com/nhannt201/VoiceNET.Library/gh-pages/VoiceNET_Library__Demo_Product__Recording.gif" alt="VoiceNET Library" />
 
-![](https://raw.githubusercontent.com/nhannt201/VoiceNET.Library/gh-pages/VoiceNET_Library__Demo_Product__Recording.gif)
 
 ***Example of command label recognition by recording***
 
@@ -172,8 +173,9 @@ Use the included [MicBuilder](https://github.com/nhannt201/VoiceNET.Library/tree
 
 
 <div align="center">
+	
+<img src="https://raw.githubusercontent.com/nhannt201/VoiceNET.Library/gh-pages/VoiceNET_Library__MicBuilder__Create_a_Model.gif" alt="VoiceNET Library" />
 
-![](https://raw.githubusercontent.com/nhannt201/VoiceNET.Library/gh-pages/VoiceNET_Library__MicBuilder__Create_a_Model.gif)
 
 ***MicBuilder Model Builder***
 
