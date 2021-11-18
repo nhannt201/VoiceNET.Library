@@ -1,6 +1,7 @@
 # VoiceNET Library
 
 [![Nuget](https://img.shields.io/nuget/v/VoiceNET.Library?label=NuGet&logo=nuget)](https://www.nuget.org/packages/VoiceNET.Library/)
+[![NuGet](https://img.shields.io/nuget/dt/VoiceNET.Library.svg)](https://www.nuget.org/packages/VoiceNET.Library)
 ## Thư viện điều khiển lệnh bằng giọng nói miễn phí
 ## Giới thiệu
 **VoiceNET Library** giúp bạn dễ dàng và nhanh chóng tạo chức năng Điều khiển lệnh bằng giọng nói thông qua Dự đoán nhãn. Nó giúp phát triển phần mềm điều khiển bằng giọng nói trong thời gian thực. Nó miễn phí hỗ trợ sử dụng trực tuyến và ngoại tuyến. Đây là dự án phát triển cộng đồng nhằm giúp mọi người tiếp cận công nghệ nhận dạng giọng nói dễ dàng hơn.

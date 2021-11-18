@@ -1,6 +1,7 @@
 # VoiceNET Library
 
 [![Nuget](https://img.shields.io/nuget/v/VoiceNET.Library?label=NuGet&logo=nuget)](https://www.nuget.org/packages/VoiceNET.Library/)
+[![NuGet](https://img.shields.io/nuget/dt/VoiceNET.Library.svg)](https://www.nuget.org/packages/VoiceNET.Library)
 ## Free Voice Command Control Library
 
 # Table of Contents
