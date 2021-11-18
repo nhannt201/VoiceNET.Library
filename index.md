@@ -6,7 +6,6 @@ This is a research project from the FPT Edu Research Festival 2021 contest.
 <div align="center">
 
 <img src="https://raw.githubusercontent.com/nhannt201/VoiceNET.Library/gh-pages/logo.png" alt="VoiceNET Library" />
-
  
 </div>
 
@@ -53,13 +52,11 @@ Install-Package VoiceNET.Library
 ## WinForm Real-time
 
 
-#### Example
+#### Example - A real-time voice-controlled image gallery
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/nhannt201/VoiceNET.Library/gh-pages/VoiceNET_Library__Demo_Product__Libum.gif" alt="VoiceNET Library" />
-
-***A real-time voice-controlled image gallery***
+<img src="https://raw.githubusercontent.com/nhannt201/VoiceNET.Library/gh-pages/VoiceNET_Library__Demo_Product__Libum.gif" alt="A real-time voice-controlled image gallery" />
 
 </div>
 
@@ -87,14 +84,11 @@ lbResult.Text = VBuilder.WFGetResult;
 ```
 
 ## WinForm Recording
-#### Example
+#### Example - Example of command label recognition by recording
 
 <div align="center">
 	
-<img src="https://raw.githubusercontent.com/nhannt201/VoiceNET.Library/gh-pages/VoiceNET_Library__Demo_Product__Recording.gif" alt="VoiceNET Library" />
-
-
-***Example of command label recognition by recording***
+<img src="https://raw.githubusercontent.com/nhannt201/VoiceNET.Library/gh-pages/VoiceNET_Library__Demo_Product__Recording.gif" alt="Example of command label recognition by recording" />
 
 </div>
 
@@ -174,10 +168,11 @@ Use the included [MicBuilder](https://github.com/nhannt201/VoiceNET.Library/tree
 
 <div align="center">
 	
-<img src="https://raw.githubusercontent.com/nhannt201/VoiceNET.Library/gh-pages/VoiceNET_Library__MicBuilder__Create_a_Model.gif" alt="VoiceNET Library" />
+<img src="https://raw.githubusercontent.com/nhannt201/VoiceNET.Library/gh-pages/VoiceNET_Library__MicBuilder__Create_a_Model.gif" alt="MicBuilder Model Builder" />
 
 
-***MicBuilder Model Builder***
+<br>
+	<center>***MicBuilder Model Builder***</center>
 
 </div>
 
