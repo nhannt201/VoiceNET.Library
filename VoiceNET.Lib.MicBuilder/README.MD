@@ -34,6 +34,8 @@ Click ***"Save & Close"***
 
 - Start speaking content related to the entered label name until you see the captured image in the MicBuilder interface.  Then, click "Add Image Label". Continue doing this until you have the quantity you want. Add as much data as possible and each label should have an equal number of times.
 
+***Tip:*** multiple people's voices can be used to increase the diversity of the dataset.
+
 When finished, click ***"x"*** to close the window
 
 ### Step 3 - Train Data
@@ -44,6 +46,10 @@ Model creation will happen automatically, please wait until it's done. When the 
 ### Final
 
 The ***MLModel.zip*** file will be created inside your Dataset folder. Use it with the ***VoiceNET Library*** to build Voice Command Control for your software.
+
+### Note
+
+The maximum dataset size is 1GB according to the conventions of the ML.NET library.
 
 ### How to use Model from MicBuilder? ###
 <div align="center">
