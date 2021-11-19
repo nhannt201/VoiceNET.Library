@@ -83,6 +83,11 @@ In tmGetResult
 lbResult.Text = VBuilder.WFGetResult;
 ```
 
+Use the following code if you want to stop listening
+```cs
+VBuilder.WFStopListener();
+```
+
 ## WinForm Recording
 #### Example - Example of command label recognition by recording
 
@@ -153,6 +158,11 @@ VBuilder.ModelPath("<your_model_path>");
 In void tmGetResult_Tick
 ```cs
 lbResult.Content = VBuilder.WPFGetResult;
+```
+
+Use the following code if you want to stop listening
+```cs
+VBuilder.WPFStopListener();
 ```
 
 ## WPF Recording
