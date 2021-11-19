@@ -257,6 +257,8 @@ namespace VoiceNET.Lib
             }
         }
 
+     
+
         //Timer for WPF
         static System.Timers.Timer WPFTimer_Listener;
         static System.Timers.Timer WPFTimer_DisposeRam;
@@ -267,6 +269,15 @@ namespace VoiceNET.Lib
         protected static string WPFGetResult => return_label; //Get text
 
         protected static string WFGetResult => return_label; //Get text
+
+        //Action stop Timer
+        protected static void WPFStopListener()
+        {
+            WPFTimer_Listener.Stop();
+            WPFTimer_DisposeRam.Stop();
+        }
+
+        protected static void WFStopListener() => WPFStopListener(); //Same WPF
 
         protected static void WPFListener()
         {

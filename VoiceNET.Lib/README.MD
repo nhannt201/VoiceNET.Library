@@ -37,6 +37,11 @@ In tmGetResult
 lbResult.Text = VBuilder.WFGetResult;
 ```
 
+Use the following code if you want to stop listening
+```cs
+VBuilder.WFStopListener();
+```
+
 ### WinForm Recording ###
 Drag and drop into the Windows Forms interface:
 - **Button**: btnRecord, btnStop
@@ -58,13 +63,13 @@ else
 btnRecord_Click
 ```cs
 
-VBuilder.Record();
+VBuilder.StartRecord();
 
 ```
 btnStop
 ```cs
 
-VBuilder.Stop();
+VBuilder.StopRecord();
 
 lbResult.Text = VBuilder.Result(true);
 
@@ -109,6 +114,11 @@ In void tmGetResult_Tick
 
 lbResult.Content = VSpeech.WPFGetResult;
 
+```
+
+Use the following code if you want to stop listening
+```cs
+VBuilder.WPFStopListener();
 ```
 
 ### WPF Recording ###

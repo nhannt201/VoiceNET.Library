@@ -89,8 +89,15 @@ namespace VoiceNET.Lib.MicBuilder
                 else
 
                 {
+                    try
+                    {
+                        VBuilder.reduceNoiseAndCapture(pbSpectrogram, true);
 
-                    VBuilder.reduceNoiseAndCapture(pbSpectrogram, true);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
 
                 }
             }

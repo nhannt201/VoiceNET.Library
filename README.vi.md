@@ -91,6 +91,13 @@ Trong tmGetResult
 ```cs
 lbResult.Text = VBuilder.WFGetResult;
 ```
+
+Sử dụng thêm mã sau nếu muốn dừng việc lắng nghe
+
+```cs
+VBuilder.WFStopListener();
+```
+
 ### Dựa trên bản ghi âm trên WinForm ###
 #### Ví dụ ####
 
@@ -125,7 +132,7 @@ VBuilder.ModelPath("<your_model_path>");
 btnRecord_Click
 ```cs
 
-VBuilder.Record();
+VBuilder.StartRecord();
 
 btnStop.Enabled = true;
 
@@ -135,7 +142,7 @@ btnRecord.Enabled = false;
 btnStop
 ```cs
 
-VBuilder.Stop();
+VBuilder.StopRecord();
 
 lbResult.Text = VBuilder.Result(true);
 
@@ -184,6 +191,12 @@ Trong void tmGetResult_Tick
 
 lbResult.Content = VBuilder.WPFGetResult;
 
+```
+
+Sử dụng thêm mã sau nếu muốn dừng việc lắng nghe
+
+```cs
+VBuilder.WPFStopListener();
 ```
 
 ### WPF Recording ###

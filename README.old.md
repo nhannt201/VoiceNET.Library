@@ -184,7 +184,7 @@ VBuilder.ModelPath("<your_model_path>");
 btnRecord_Click
 ```cs
 
-VBuilder.Record();
+VBuilder.StartRecord();
 
 btnStop.Enabled = true;
 
@@ -194,7 +194,7 @@ btnRecord.Enabled = false;
 btnStop
 ```cs
 
-VBuilder.Stop();
+VBuilder.StopRecord();
 
 lbResult.Text = VBuilder.Result(true);
 

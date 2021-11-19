@@ -71,11 +71,16 @@ namespace VoiceNET.Lib
 
         public static new string WPFGetResult => VSpeech.WPFGetResult;
 
-        public static new string WFGetResult => VSpeech.WFGetResult;
+        public static new string WFGetResult => VSpeech.WPFGetResult; 
 
         public static new void WPFListener() => VSpeech.WPFListener();
 
-        public static new void WFListener() => VSpeech.WFListener();
+        public static new void WFListener() => VSpeech.WFListener(); //SameWPF
+
+        public static new void WPFStopListener() => VSpeech.WPFStopListener();
+
+        public static new void WFStopListener() => VSpeech.WFStopListener(); 
+
 
         public static new bool requestDisposeListening
         {
@@ -148,7 +153,7 @@ namespace VoiceNET.Lib
 
         //Nhan dang dung phu thuoc vao cau hinh Microphone luc create data tranin/
         //Khi record doi vai giay de mic bat dau thu am
-        public static void Record()
+        public static void StartRecord()
         {
             try
             {
@@ -166,7 +171,7 @@ namespace VoiceNET.Lib
 
             
         }
-        public static void Stop()
+        public static void StopRecord()
         {
             mciSendString("stop recsound", "", 0, 0);
             mciSendString("save recsound " + temp_wav_analytic, "", 0, 0);

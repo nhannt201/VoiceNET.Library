@@ -18,7 +18,7 @@ namespace VoiceNET.Lib.RecordDemo
         private void btnRecord_Click(object sender, EventArgs e)
         {
 
-            VBuilder.Record();
+            VBuilder.StartRecord();
 
             btnStop.Enabled = true;
 
@@ -56,7 +56,7 @@ namespace VoiceNET.Lib.RecordDemo
         private void btnStop_Click(object sender, EventArgs e)
         {
 
-            VBuilder.Stop();
+            VBuilder.StopRecord();
 
             lbResult.Text = VBuilder.Result(true);
 

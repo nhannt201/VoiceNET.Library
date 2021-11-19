@@ -44,7 +44,7 @@ namespace VoiceNET.Lib.WPF.Record
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
 
-            VBuilder.Record();
+            VBuilder.StartRecord();
 
             btnStop.IsEnabled = true;
 
@@ -53,7 +53,7 @@ namespace VoiceNET.Lib.WPF.Record
 
         private void btnStop_Click(object sender, RoutedEventArgs e)
         {
-            VBuilder.Stop();
+            VBuilder.StopRecord();
 
             lbResult.Content = VBuilder.Result(true);
 

@@ -112,6 +112,11 @@ In tmGetResult
 lbResult.Text = VBuilder.WFGetResult;
 ```
 
+Use the following code if you want to stop listening
+```cs
+VBuilder.WFStopListener();
+```
+
 ## WinForm Recording
 #### Example
 
@@ -146,7 +151,7 @@ VBuilder.ModelPath("<your_model_path>");
 btnRecord_Click
 ```cs
 
-VBuilder.Record();
+VBuilder.StartRecord();
 
 btnStop.Enabled = true;
 
@@ -156,7 +161,7 @@ btnRecord.Enabled = false;
 btnStop
 ```cs
 
-VBuilder.Stop();
+VBuilder.StopRecord();
 
 lbResult.Text = VBuilder.Result(true);
 
@@ -205,6 +210,11 @@ In void tmGetResult_Tick
 
 lbResult.Content = VBuilder.WPFGetResult;
 
+```
+
+Use the following code if you want to stop listening
+```cs
+VBuilder.WPFStopListener();
 ```
 
 ## WPF Recording
