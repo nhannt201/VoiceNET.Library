@@ -4,14 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5270FF37-7AF4-4427-8FDA-43E1821D065A}</ProjectGuid>
+    <ProjectGuid>{F6DE9D5B-1734-4129-BE94-80AC2F553F88}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>VoiceNET.Lib.MicBuilder</RootNamespace>
-    <AssemblyName>VoiceNET.Lib.MicBuilder</AssemblyName>
+    <RootNamespace>Winform.Realtime.WebAPI</RootNamespace>
+    <AssemblyName>Winform.Realtime.WebAPI</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x64</PlatformTarget>
@@ -24,7 +26,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,15 +34,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>voicenet.ico</ApplicationIcon>
-  </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="VoiceNET.Library">
-      <Version>1.0.6.8</Version>
-    </PackageReference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,61 +47,19 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <PackageReference Include="FftSharp" Version="1.0.8" />
-    <PackageReference Include="Microsoft.ML" Version="1.5.2" />
-    <PackageReference Include="Microsoft.ML.ImageAnalytics" Version="1.5.2" />
-    <PackageReference Include="Microsoft.ML.Vision" Version="1.5.2" />
-    <PackageReference Include="NAudio" Version="2.0.0" />
-    <PackageReference Include="SciSharp.TensorFlow.Redist" Version="1.14.0" />
-    <PackageReference Include="System.Drawing.Common" Version="5.0.3" />
+     <PackageReference Include="VoiceNET.Library" Version="1.0.6.8" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmConfig.cs">
+    <Compile Include="frmHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmConfig.Designer.cs">
-      <DependentUpon>frmConfig.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmMicBuilder.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMicBuilder.Designer.cs">
-      <DependentUpon>frmMicBuilder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmMonitor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMonitor.Designer.cs">
-      <DependentUpon>frmMonitor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmTrain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTrain.Designer.cs">
-      <DependentUpon>frmTrain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmEvaluate.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmEvaluate.Designer.cs">
-      <DependentUpon>frmEvaluate.cs</DependentUpon>
+    <Compile Include="frmHome.Designer.cs">
+      <DependentUpon>frmHome.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmConfig.resx">
-      <DependentUpon>frmConfig.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMicBuilder.resx">
-      <DependentUpon>frmMicBuilder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMonitor.resx">
-      <DependentUpon>frmMonitor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTrain.resx">
-      <DependentUpon>frmTrain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmEvaluate.resx">
-      <DependentUpon>frmEvaluate.cs</DependentUpon>
+    <EmbeddedResource Include="frmHome.resx">
+      <DependentUpon>frmHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -128,9 +83,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="voicenet.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

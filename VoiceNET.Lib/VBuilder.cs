@@ -21,9 +21,6 @@ namespace VoiceNET.Lib
 
         private static string temp_imgload_analytic = Path.Combine(Path.GetTempPath() + @"\VoiceNET.Library\" + Guid.NewGuid().ToString() + ".png");
 
-
-        private static string result_label = "";
-
         private static bool isTrainData = false;
 
        // public static object VSpeech { get; set; }
@@ -71,17 +68,29 @@ namespace VoiceNET.Lib
 
         public static new string WPFGetResult => VSpeech.WPFGetResult;
 
-        public static new string WFGetResult => VSpeech.WPFGetResult; 
+        public static new string WFGetResult => VSpeech.WPFGetResult;
+
+        public static string WebAPIGetResult => VSpeech.APIGetResult;
 
         public static new void WPFListener() => VSpeech.WPFListener();
 
         public static new void WFListener() => VSpeech.WFListener(); //SameWPF
 
+        public static new void WebAPIListener() => VSpeech.WebAPIListener(); //SameWPF
+
         public static new void WPFStopListener() => VSpeech.WPFStopListener();
 
-        public static new void WFStopListener() => VSpeech.WFStopListener(); 
+        public static new void WFStopListener() => VSpeech.WFStopListener();
+
+        public static void WebAPStopListener() => VSpeech.WPFStopListener();
 
 
+
+        public static string setApiUrl
+        {
+            get { return VSpeech.api_path_url; }
+            set { VSpeech.api_path_url = value; }
+        }
         public static new bool requestDisposeListening
         {
             
@@ -91,8 +100,6 @@ namespace VoiceNET.Lib
         }
 
         public static new void addImageLabel(string filename) => VSpeech.addImageLabel(filename);
-
-
 
 
         //End call from VSpeech
@@ -129,6 +136,7 @@ namespace VoiceNET.Lib
             else
                 return false;
         }
+
         public static bool isTrainCompleted() => isTrainData = false;
         public static string getTrainStatus() => ModelBuilder.status_train;
         private static (double[] audio, int sampleRate)  ReadWAV(string filePath, double multiplier = 32_000)
@@ -225,9 +233,9 @@ namespace VoiceNET.Lib
                 ImageSource = temp_image_analytic,
             };
 
-            result_label = ConsumeModel.Predict(SpeechDataset).Prediction;
+            return_label = ConsumeModel.Predict(SpeechDataset).Prediction;
 
-            return result_label;
+            return return_label;
         }
 
         public static string Result(bool isSoundData=false)
@@ -240,12 +248,12 @@ namespace VoiceNET.Lib
                 ImageSource = temp_image_analytic,
             };
 
-            result_label = ConsumeModel.Predict(SpeechDataset).Prediction;
+            return_label = ConsumeModel.Predict(SpeechDataset).Prediction;
 
             //Kiem tra khi record bang sound thi moi xoa wav
             ReleaseTemp(isSoundData); 
 
-            return result_label;
+            return return_label;
         }
 
         public static string Result(string image_path_ana)
@@ -256,9 +264,9 @@ namespace VoiceNET.Lib
                 ImageSource = image_path_ana,
             };
 
-            result_label = ConsumeModel.Predict(SpeechDataset).Prediction;
+            return_label = ConsumeModel.Predict(SpeechDataset).Prediction;
 
-            return result_label;
+            return return_label;
         }
 
         public static void ReleaseTemp(bool isSoundData = false)

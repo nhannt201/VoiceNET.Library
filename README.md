@@ -171,7 +171,7 @@ btnStop.Enabled = false;
 
 ```
 
-## WPF Real-time
+## WPF Real-time - Support from v1.0.5
 
 Drag and drop into the WPF Application interface:
 
@@ -217,13 +217,19 @@ Use the following code if you want to stop listening
 VBuilder.WPFStopListener();
 ```
 
-## WPF Recording
+## WPF Recording - Support from v1.0.5
 
 See the example in [VoiceNET.Lib.WPF.Record](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.WPF.Record) for more how to use it.
 
-## Web ASP.NET MVC
+## ASP.NET MVC - Support from v1.0.2.4
 
 See the example in [VoiceNET.Lib.Web.AspNet](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.Web.AspNet) for more how to use it.
+
+## ASP.NET Core Web API - Support from v1.0.6.8
+
+See the example in [SampleWebAPI](https://github.com/nhannt201/VoiceNET.Library/tree/main/SampleWebAPI) for more how to use it.
+
+It includes example ***ASP.NET Core Web API*** and **WinForm App (WinForm Realtime)** using Web API.
 
 # How to create a Model?
 Use the included [MicBuilder](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.MicBuilder/README.MD) program to build an MLModel.zip file for your Dataset.

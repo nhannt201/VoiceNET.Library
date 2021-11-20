@@ -204,15 +204,15 @@ btnStop.Enabled = false;
 
 ```
 
-### WPF Real-time ###
+### WPF Real-time - Support from v1.0.5
 
 See the example in [VoiceNET.Lib.WPF.Realtime](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.WPF.Realtime) for more how to use it.
 
-### WPF Recording ###
+### WPF Recording - Support from v1.0.5
 
 See the example in [VoiceNET.Lib.WPF.Record](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.WPF.Record) for more how to use it.
 
-### Web ASP.NET MVC ###
+### Web ASP.NET MVC - Support from v1.0.2.4
 
 See the example in [VoiceNET.Lib.Web.AspNet](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.Web.AspNet) for more how to use it.
 

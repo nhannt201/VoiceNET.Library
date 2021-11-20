@@ -152,7 +152,7 @@ btnStop.Enabled = false;
 
 ```
 
-### WPF Real-time ###
+### WPF Real-time - Hỗ trợ từ v1.0.5
 
 Kéo thả vào giao diện WPF Application:
 
@@ -199,13 +199,19 @@ Sử dụng thêm mã sau nếu muốn dừng việc lắng nghe
 VBuilder.WPFStopListener();
 ```
 
-### WPF Recording ###
+### WPF Recording - Hỗ trợ từ v1.0.5
 
 Xem thêm ví dụ [VoiceNET.Lib.WPF.Record](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.WPF.Record) để biết cách sử dụng trên WPF.
 
-### Web ASP.NET MVC
+### Web ASP.NET MVC - Hỗ trợ từ v1.0.2.4
 
 Xem thêm ví dụ [VoiceNET.Lib.Web.AspNet](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.Web.AspNet) để biết cách sử dụng trên ASP.NET MVC.
+
+## ASP.NET Core Web API - Hỗ trợ từ v1.0.6.8
+
+Xem thêm ví dụ [SampleWebAPI](https://github.com/nhannt201/VoiceNET.Library/tree/main/SampleWebAPI) để biết cách sử dụng trên Web API.
+
+Nó bao gồm ví dụ project ***ASP.NET Core Web API*** và **WinForm App (WinForm Realtime)** sử dụng Web API.
 
 ## Làm thế nào để tạo một Model?
 Dùng phần mềm [MicBuilder](https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.MicBuilder/README.MD) để xây dựng tệp MLModel.zip cho tập dữ liệu của bạn.

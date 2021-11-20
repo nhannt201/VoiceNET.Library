@@ -6,6 +6,10 @@ using System.Drawing;
 using System.Diagnostics;
 using System.IO;
 using System.Timers;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Net;
+using System.Globalization;
 
 namespace VoiceNET.Lib
 {
@@ -35,7 +39,12 @@ namespace VoiceNET.Lib
 
         protected static string temp_path_analytic = Path.Combine(Path.GetTempPath() + @"\VoiceNET.Library");
 
-         static ComboBox WPFcbDevice = new ComboBox();
+        protected static string api_path_url = "";
+
+        protected static string return_label = "";
+
+
+        static ComboBox WPFcbDevice = new ComboBox();
 
          static int WPFpbSpec = defaultWidth;
         protected static void getDevice(ComboBox cbDevice)
@@ -263,12 +272,11 @@ namespace VoiceNET.Lib
         static System.Timers.Timer WPFTimer_Listener;
         static System.Timers.Timer WPFTimer_DisposeRam;
 
-
-        static string return_label =  "";
-
         protected static string WPFGetResult => return_label; //Get text
 
         protected static string WFGetResult => return_label; //Get text
+
+        protected static string APIGetResult => return_label; //Get text
 
         //Action stop Timer
         protected static void WPFStopListener()
@@ -378,10 +386,74 @@ namespace VoiceNET.Lib
         }
 
         //End Timer for Winform QuickStart
+
+        //Timer for API
+
+        protected static void WebAPIListener()
+        {
+            WPFgetDevice(); //Default Device
+
+            WPFStartListening();
+
+            WPFTimer_Listener = new System.Timers.Timer(100);
+            WPFTimer_Listener.Elapsed += WebAPI_ListenerAsync;
+            WPFTimer_Listener.AutoReset = true;
+            WPFTimer_Listener.Enabled = true;
+
+            WPFDisposeRam();
+        }
+        static void WebAPI_ListenerAsync(Object source, ElapsedEventArgs e)
+        {
+            if (requestDisposeListening)
+
+            {
+                WPFpbSpec = defaultWidth;
+
+                var image = File.ReadAllBytes(temp_image_analytic);
+
+                postAPI(api_path_url, image);
+
+                WPFStartListening(); //Renew Lisener
+
+                requestDisposeListening = false;
+
+            }
+
+            else
+
+            {
+
+                WPFreduceNoiseAndCapture();
+
+            }
+
+        }
+
+        //End API
         protected static bool requestDisposeListening
         {
             get { return needDispose; }  
             set { needDispose = value; } 
+        }
+        protected static async void postAPI(string actionUrl, byte[] image)
+        {
+            using (var client = new HttpClient())
+            {
+                using (var content =
+                    new MultipartFormDataContent("Upload----" + DateTime.Now.ToString(CultureInfo.InvariantCulture)))
+                {
+                    content.Add(new StreamContent(new MemoryStream(image)), "name", "tempspec.png");
+
+                    using (
+                       var message =
+                           await client.PostAsync(actionUrl, content))
+                    {
+                        var input = await message.Content.ReadAsStringAsync();
+
+                        return_label = input.ToString();
+                    }
+                }
+            }
         }
 
         private static void saveImageLabelCache()
