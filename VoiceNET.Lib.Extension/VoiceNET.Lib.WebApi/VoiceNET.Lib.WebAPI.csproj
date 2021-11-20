@@ -1,0 +1,91 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  
+	  <PublishRepositoryUrl>true</PublishRepositoryUrl>
+
+	  <EmbedUntrackedSources>true</EmbedUntrackedSources>
+	  
+	      <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+	  <IncludeSymbols>true</IncludeSymbols>
+
+	  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	  <Platforms>AnyCPU</Platforms>
+	  
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  
+    <Authors>Nguyễn Trung Nhẫn</Authors>
+	  
+    <SignAssembly>False</SignAssembly>
+	  
+    <PackageId>VoiceNET.Lib.WebAPI</PackageId>
+	  
+    <Version>1.0.0</Version>
+	  
+    <Product>VoiceNET.Lib.WebAPI</Product>
+
+	 <Deterministic>true</Deterministic>
+	  
+	 <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+
+	 <AnalysisLevel>latest</AnalysisLevel>
+	  
+    <EnableNETAnalyzers>True</EnableNETAnalyzers>
+	  
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+	  
+    <Copyright>Nguyễn Trung Nhẫn</Copyright>
+	  
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+	  
+    <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+	  
+    <PackageTags>VoiceNET.Library, Voice Command Control, Voice Recognition, voice recognition through image spectrogram, Spectrogram, ml.net, machine learning image classification, voice control, voice assistant, control web by voice, machine learning, image classifiaction, web api</PackageTags>
+    
+	  <PackageReleaseNotes>Web API Support</PackageReleaseNotes>
+	  
+    <DelaySign>True</DelaySign>
+	  
+    <Description>VoiceNET.Lib.WebAPI is an extension of VoiceNET.Library that supports Web API.</Description>
+	  
+    <AssemblyVersion></AssemblyVersion>
+	  
+    <PackageIcon>VoiceNET.png</PackageIcon>
+	  
+    <ApplicationIcon>voicenet.ico</ApplicationIcon>
+	  
+    <PackageProjectUrl>https://github.com/nhannt201/VoiceNET.Library</PackageProjectUrl>
+	  
+    <RepositoryUrl>https://github.com/nhannt201/VoiceNET.Library</RepositoryUrl>
+	  
+    <PackageReadmeFile>README.MD</PackageReadmeFile>
+	  	  
+    <DebugType>portable</DebugType>
+	  	  
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  	  
+    <PlatformTarget>AnyCPU</PlatformTarget>
+	  
+  </PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="FftSharp" Version="1.0.8" />
+		<PackageReference Include="Microsoft.ML" Version="[1.5.2,1.6.0]" />
+		<PackageReference Include="Microsoft.ML.ImageAnalytics" Version="1.5.2" />
+		<PackageReference Include="Microsoft.ML.Vision" Version="1.5.2" />
+		<PackageReference Include="NAudio" Version="2.0.0" />
+		<PackageReference Include="SciSharp.TensorFlow.Redist" Version="[1.14.0]" />
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+	<ItemGroup>
+
+  </ItemGroup>
+	<ItemGroup>
+	  <None Update="README.MD" Pack="true" PackagePath="\" />
+	  <None Update="VoiceNET.png" Pack="true" PackagePath="\" />
+	</ItemGroup>
+	
+</Project>

@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using VoiceNET.Lib;
+using VoiceNET.Lib.ClientAPI;
 
 namespace Winform.Realtime.WebAPI
 {
@@ -17,13 +10,9 @@ namespace Winform.Realtime.WebAPI
         {
             InitializeComponent();
 
-            //You can remove these bundled NuGet packages when using Web API to free up space for your application
-
-            //Can Remove: TensorFlow.NET, NumSharp, Microsoft.ML, SciSharp.TensorFlow.Redist
-
             //You need to add a command to check if the URL exists or not
 
-            VBuilder.setApiUrl = "https://localhost:44339/VoiceNETResultLabel";
+            VBuilder.setApiUrl = "https://localhost:44355/VoiceNETResultLabel";
 
             VBuilder.getDevice();
 

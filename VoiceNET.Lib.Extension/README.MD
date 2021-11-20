@@ -1,8 +1,8 @@
 # VoiceNET Library
 
-## Example Web API
+## VoiceNET.Lib.Extension
 
-Example of using Web API
+VoiceNET.Lib.WebAPI is an extension of VoiceNET.Library that supports Web API.
  
 VoiceNET.Lib.ClientAPI: https://www.nuget.org/packages/VoiceNET.Lib.ClientAPI/
  
