@@ -2,6 +2,8 @@
 **VoiceNET Library** makes it easy and fast to create Voice Command Control functionality through Label Prediction.  It helps develop voice control in real-time on software or the web. It free supports online and offline use. This is a community development project to help people access voice recognition technology more easily.
  
 It's a research project from the FPT Edu Research Festival 2021 contest. 
+ 
+This is the full library, including the functions of ***VoiceNET.Lib.WebAPI*** and ***VoiceNET.Lib.ClientAPI***.
 
 ## Installation
 

@@ -185,6 +185,37 @@ namespace VoiceNET.Lib
             mciSendString("save recsound " + temp_wav_analytic, "", 0, 0);
             mciSendString("close recsound", "", 0, 0);
         }
+
+        //Web API Record
+        public static void WebAPIStartRecord()
+        {
+            try { if (File.Exists(temp_wav_analytic)) File.Delete(temp_wav_analytic); }
+            catch { }
+
+            mciSendString("open new Type waveaudio Alias recsound", "", 0, 0);
+            mciSendString("set recsound format tag pcm bitspersample 16 channels 1 samplespersec 44100 bytespersec 88200 alignment 2", "", 0, 0);
+            mciSendString("record recsound", "", 0, 0);
+
+        }
+        public static void WebAPIStopRecord()
+        {
+            mciSendString("stop recsound", "", 0, 0);
+            mciSendString("save recsound " + temp_wav_analytic, "", 0, 0);
+            mciSendString("close recsound", "", 0, 0);
+
+            try { if (File.Exists(temp_image_analytic)) File.Delete(temp_image_analytic); }
+            catch { }
+
+            (double[] audio, int sampleRate) = ReadWAV(temp_wav_analytic);
+            var sg = new SpectrogramGenerator(sampleRate, fftSize: 4096, stepSize: 500, maxFreq: 3000);
+            sg.Add(audio);
+            sg.SaveImage(temp_image_analytic);
+
+            var image = File.ReadAllBytes(temp_image_analytic);
+
+            postAPI(api_path_url, image);
+        }
+        //End
         private static void ToImageTemp()
         {
             try

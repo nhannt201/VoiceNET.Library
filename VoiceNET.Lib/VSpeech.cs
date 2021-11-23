@@ -63,6 +63,7 @@ namespace VoiceNET.Lib
         protected static void getDevice() => WPFgetDevice(); //Default device
         protected static void WPFgetDevice() //WPF
         {
+            if (!Directory.Exists(temp_path_analytic)) Directory.CreateDirectory(temp_path_analytic);
                 //Add device to Combobox
                 WPFcbDevice.Items.Clear();
                 for (int i = 0; i < NAudio.Wave.WaveIn.DeviceCount; i++)

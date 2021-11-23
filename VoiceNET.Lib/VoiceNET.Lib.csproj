@@ -21,7 +21,7 @@
 	  
     <PackageId>VoiceNET.Library</PackageId>
 	  
-    <Version>1.0.6.8</Version>
+    <Version>1.0.6.9</Version>
 	  
     <Product>VoiceNET.Library</Product>
 
@@ -35,7 +35,7 @@
 	  
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
 	  
-    <Copyright>Nguyễn Trung Nhẫn</Copyright>
+    <Copyright>Copyright (c) 2021 Nguyễn Trung Nhẫn</Copyright>
 	  
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
 	  
@@ -43,7 +43,7 @@
 	  
     <PackageTags>VoiceNET.Library, Voice Command Control, Voice Recognition, voice recognition through image spectrogram, Spectrogram, ml.net, machine learning image classification, voice control, voice assistant, control web by voice, machine learning, image classifiaction</PackageTags>
     
-	  <PackageReleaseNotes>Web API Support</PackageReleaseNotes>
+	  <PackageReleaseNotes>Fix bugs for Web API Support - Add recording and label recognition via WebAPI to the full library (from VoiceNET.Lib.ClientAPI). WebAPIStartRecord and WebAPIStopRecord.</PackageReleaseNotes>
 	  
     <DelaySign>True</DelaySign>
 	  
