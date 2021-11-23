@@ -45,8 +45,9 @@ namespace VoiceNET.Lib.ClientAPI
          static int WPFpbSpec = defaultWidth;
         protected static void getDevice() //WPF
         {
-                //Add device to Combobox
-                WPFcbDevice.Items.Clear();
+            if (!Directory.Exists(temp_path_analytic)) Directory.CreateDirectory(temp_path_analytic);
+            //Add device to Combobox
+            WPFcbDevice.Items.Clear();
                 for (int i = 0; i < NAudio.Wave.WaveIn.DeviceCount; i++)
                     WPFcbDevice.Items.Add(NAudio.Wave.WaveIn.GetCapabilities(i).ProductName);
                 WPFcbDevice.SelectedIndex = 0; //Default device
@@ -283,6 +284,6 @@ namespace VoiceNET.Lib.ClientAPI
             }
         }
 
-   
+
     }
 }

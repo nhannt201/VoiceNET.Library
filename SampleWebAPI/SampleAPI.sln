@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Winform.Realtime.ClientAPI"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNet.WebAPI", "AspNet.WebAPI\AspNet.WebAPI.csproj", "{606D547A-8588-4A59-9D2F-D77D62D5DF1D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Winform.Recording.ClientAPI", "Winform.Recording.ClientAPI\Winform.Recording.ClientAPI.csproj", "{4F31F001-F146-42B8-8B85-5FDFC4C425DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{606D547A-8588-4A59-9D2F-D77D62D5DF1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{606D547A-8588-4A59-9D2F-D77D62D5DF1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{606D547A-8588-4A59-9D2F-D77D62D5DF1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F31F001-F146-42B8-8B85-5FDFC4C425DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F31F001-F146-42B8-8B85-5FDFC4C425DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F31F001-F146-42B8-8B85-5FDFC4C425DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F31F001-F146-42B8-8B85-5FDFC4C425DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

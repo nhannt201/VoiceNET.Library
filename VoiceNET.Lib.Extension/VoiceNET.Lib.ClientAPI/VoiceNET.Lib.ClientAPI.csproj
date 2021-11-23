@@ -21,7 +21,7 @@
 	  
     <PackageId>VoiceNET.Lib.ClientAPI</PackageId>
 	  
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
 	  
     <Product>VoiceNET.Lib.ClientAPI</Product>
 
@@ -35,7 +35,7 @@
 	  
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
 	  
-    <Copyright>Nguyễn Trung Nhẫn</Copyright>
+    <Copyright>Copyright (c) 2021 Nguyễn Trung Nhẫn</Copyright>
 	  
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
 	  
@@ -43,13 +43,13 @@
 	  
     <PackageTags>VoiceNET.Library, Voice Command Control, Voice Recognition, voice recognition through image spectrogram, Spectrogram, ml.net, machine learning image classification, voice control, voice assistant, control web by voice, machine learning, image classifiaction, web api</PackageTags>
     
-	  <PackageReleaseNotes>Web API Support</PackageReleaseNotes>
+	  <PackageReleaseNotes>Fix bugs and support recording and get labels through Web API.</PackageReleaseNotes>
 	  
     <DelaySign>True</DelaySign>
 	  
     <Description>VoiceNET.Lib.ClientAPI is an extension of VoiceNET.Library that supports WinForm or WPF to use Voice Command Control in real-time through Web API.</Description>
 	  
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyVersion></AssemblyVersion>
 	  
     <PackageIcon>VoiceNET.png</PackageIcon>
 	  
@@ -57,7 +57,7 @@
 	  
     <PackageProjectUrl>https://github.com/nhannt201/VoiceNET.Library</PackageProjectUrl>
 	  
-    <RepositoryUrl>https://github.com/nhannt201/VoiceNET.Library</RepositoryUrl>
+    <RepositoryUrl>https://github.com/nhannt201/VoiceNET.Library/tree/main/VoiceNET.Lib.Extension/VoiceNET.Lib.ClientAPI</RepositoryUrl>
 	  
     <PackageReadmeFile>README.MD</PackageReadmeFile>
 	  	  
