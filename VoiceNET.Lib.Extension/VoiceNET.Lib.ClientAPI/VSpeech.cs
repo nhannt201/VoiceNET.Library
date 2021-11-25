@@ -27,7 +27,7 @@ namespace VoiceNET.Lib.ClientAPI
 
         static int secondTalking = 0;
 
-        static int defaultWidth = 400; //Default VBuildertrogram image width
+        static int defaultWidth = 400;
 
         static bool needDispose = false;
 
@@ -270,7 +270,7 @@ namespace VoiceNET.Lib.ClientAPI
                 using (var content =
                     new MultipartFormDataContent("Upload----" + DateTime.Now.ToString(CultureInfo.InvariantCulture)))
                 {
-                    content.Add(new StreamContent(new MemoryStream(image)), "name", "tempspec.png");
+                    content.Add(new StreamContent(new MemoryStream(image)), "name", RandomName.getRandomName() + "temp.png");
 
                     using (
                        var message =

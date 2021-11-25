@@ -21,7 +21,7 @@
 	  
     <PackageId>VoiceNET.Lib.ClientAPI</PackageId>
 	  
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
 	  
     <Product>VoiceNET.Lib.ClientAPI</Product>
 
@@ -43,7 +43,7 @@
 	  
     <PackageTags>VoiceNET.Library, Voice Command Control, Voice Recognition, voice recognition through image spectrogram, Spectrogram, ml.net, machine learning image classification, voice control, voice assistant, control web by voice, machine learning, image classifiaction, web api</PackageTags>
     
-	  <PackageReleaseNotes>Fix bugs and support recording and get labels through Web API.</PackageReleaseNotes>
+	  <PackageReleaseNotes>Clean up code</PackageReleaseNotes>
 	  
     <DelaySign>True</DelaySign>
 	  
@@ -87,6 +87,12 @@
 	<ItemGroup>
 	  <None Update="README.MD" Pack="true" PackagePath="\" />
 	  <None Update="VoiceNET.png" Pack="true" PackagePath="\" />
+	</ItemGroup>
+	<PropertyGroup>
+		<TargetFrameworkMonikerAssemblyAttributesPath>$([System.IO.Path]::Combine('$(IntermediateOutputPath)','$(TargetFrameworkMoniker).AssemblyAttributes$(DefaultLanguageSourceExtension)'))</TargetFrameworkMonikerAssemblyAttributesPath>
+	</PropertyGroup>
+	<ItemGroup>
+		<EmbeddedFiles Include="$(GeneratedAssemblyInfoFile)" />
 	</ItemGroup>
 	
 </Project>
