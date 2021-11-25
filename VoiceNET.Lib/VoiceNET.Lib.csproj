@@ -21,7 +21,7 @@
 	  
     <PackageId>VoiceNET.Library</PackageId>
 	  
-    <Version>1.0.6.9</Version>
+    <Version>1.0.8</Version>
 	  
     <Product>VoiceNET.Library</Product>
 
@@ -43,7 +43,7 @@
 	  
     <PackageTags>VoiceNET.Library, Voice Command Control, Voice Recognition, voice recognition through image spectrogram, Spectrogram, ml.net, machine learning image classification, voice control, voice assistant, control web by voice, machine learning, image classifiaction</PackageTags>
     
-	  <PackageReleaseNotes>Fix bugs for Web API Support - Add recording and label recognition via WebAPI to the full library (from VoiceNET.Lib.ClientAPI). WebAPIStartRecord and WebAPIStopRecord.</PackageReleaseNotes>
+	  <PackageReleaseNotes>Clean up code</PackageReleaseNotes>
 	  
     <DelaySign>True</DelaySign>
 	  
@@ -80,9 +80,12 @@
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
 		</PackageReference>
 	</ItemGroup>
+	<PropertyGroup>
+		<TargetFrameworkMonikerAssemblyAttributesPath>$([System.IO.Path]::Combine('$(IntermediateOutputPath)','$(TargetFrameworkMoniker).AssemblyAttributes$(DefaultLanguageSourceExtension)'))</TargetFrameworkMonikerAssemblyAttributesPath>
+	</PropertyGroup>
 	<ItemGroup>
-
-  </ItemGroup>
+		<EmbeddedFiles Include="$(GeneratedAssemblyInfoFile)" />
+	</ItemGroup>
   <ItemGroup>
 	  <Reference Include="System.Windows.Forms">
 	    <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Windows.Forms.dll</HintPath>

@@ -15,9 +15,6 @@ namespace VoiceNET.Lib.WebAPI
 
         static string temp_image_analytic = Path.Combine(Path.GetTempPath() + @"\" + Guid.NewGuid().ToString() + ".png");
 
-        protected static string return_label = "";
-
-
         public static bool loadModel()
         {
             Bitmap bmp = new Bitmap(100,100);
@@ -62,7 +59,6 @@ namespace VoiceNET.Lib.WebAPI
             //Spectrogram to Image
             sg.SaveImage(temp_image_analytic);
 
-            //Image to Text
         }
 
         public static string Result()
@@ -72,9 +68,7 @@ namespace VoiceNET.Lib.WebAPI
                 ImageSource = temp_image_analytic,
             };
 
-            return_label = ConsumeModel.Predict(SpeechDataset).Prediction;
-
-            return return_label;
+            return ConsumeModel.Predict(SpeechDataset).Prediction;
         }
 
         public static string Result(string image_path_ana)
@@ -85,9 +79,7 @@ namespace VoiceNET.Lib.WebAPI
                 ImageSource = image_path_ana,
             };
 
-            return_label = ConsumeModel.Predict(SpeechDataset).Prediction;
-
-            return return_label;
+            return ConsumeModel.Predict(SpeechDataset).Prediction;
         }
 
         }

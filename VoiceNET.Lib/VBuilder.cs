@@ -23,8 +23,6 @@ namespace VoiceNET.Lib
 
         private static bool isTrainData = false;
 
-       // public static object VSpeech { get; set; }
-
         //Call from VSpeech
         public static new void getDevice(ComboBox cbDevice) => VSpeech.getDevice(cbDevice);
 
@@ -159,7 +157,6 @@ namespace VoiceNET.Lib
             ConsumeModel.MLNetModelPath = model;
         }
 
-        //Nhan dang dung phu thuoc vao cau hinh Microphone luc create data tranin/
         //Khi record doi vai giay de mic bat dau thu am
         public static void StartRecord()
         {
@@ -252,7 +249,6 @@ namespace VoiceNET.Lib
             //Spectrogram to Image
             sg.SaveImage(temp_image_analytic);
 
-            //Image to Text
         }
 
 

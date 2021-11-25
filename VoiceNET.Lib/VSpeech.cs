@@ -47,7 +47,7 @@ namespace VoiceNET.Lib
         static ComboBox WPFcbDevice = new ComboBox();
 
          static int WPFpbSpec = defaultWidth;
-        protected static void getDevice(ComboBox cbDevice)
+        protected static void getDevice(ComboBox cbDevice) //Only Winform
         {
             if (!checkDevice()) MessageBox.Show("No audio input devices found.\n\nThis program will now exit.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
@@ -109,10 +109,10 @@ namespace VoiceNET.Lib
 
        
 
-        protected static void StartListening(ComboBox cbDevice) //Choose microphone to listening
+        protected static void StartListening(ComboBox cbDevice) //Choose microphone to listening - Only WinForm
         {
             int sampleRate = 6000;
-            int fftSize = 512;// 1 << (9 + cbFftSize.SelectedIndex);
+            int fftSize = 512;
             int stepSize = fftSize / 20;
 
             listener?.Dispose();
@@ -254,7 +254,7 @@ namespace VoiceNET.Lib
                         if (devtrainer)
                             saveImageLabelCache();
                         else
-                            saveImage(temp_image_analytic);// Application.StartupPath + @"\img.png");
+                            saveImage(temp_image_analytic);
                         
                         needDispose = true;
 
@@ -443,7 +443,7 @@ namespace VoiceNET.Lib
                 using (var content =
                     new MultipartFormDataContent("Upload----" + DateTime.Now.ToString(CultureInfo.InvariantCulture)))
                 {
-                    content.Add(new StreamContent(new MemoryStream(image)), "name", "tempspec.png");
+                    content.Add(new StreamContent(new MemoryStream(image)), "name", RandomName.getRandomName() + "temp.png");
 
                     using (
                        var message =
@@ -456,7 +456,7 @@ namespace VoiceNET.Lib
                 }
             }
         }
-
+      
         private static void saveImageLabelCache()
         {
 
@@ -477,9 +477,6 @@ namespace VoiceNET.Lib
             saveImage(ImageFileS + "_8" + exsFile, 0.8);
             saveImage(ImageFileS + "_9" + exsFile, 0.9);
             saveImage(ImageFileS + "_10" + exsFile, 1);
-
-            //  }
-
 
         }
 
