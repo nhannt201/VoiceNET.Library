@@ -5,6 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="VoiceNET.Lib.WebAPI" Version="1.0.1" />
+    <PackageReference Include="VoiceNET.Lib.WebAPI" Version="1.0.0" />
   </ItemGroup>
 </Project>

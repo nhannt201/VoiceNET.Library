@@ -15,6 +15,9 @@ namespace VoiceNET.Lib.WebAPI
 
         static string temp_image_analytic = Path.Combine(Path.GetTempPath() + @"\" + Guid.NewGuid().ToString() + ".png");
 
+        protected static string return_label = "";
+
+
         public static bool loadModel()
         {
             Bitmap bmp = new Bitmap(100,100);
@@ -68,7 +71,9 @@ namespace VoiceNET.Lib.WebAPI
                 ImageSource = temp_image_analytic,
             };
 
-            return ConsumeModel.Predict(SpeechDataset).Prediction;
+            return_label = ConsumeModel.Predict(SpeechDataset).Prediction;
+
+            return return_label;
         }
 
         public static string Result(string image_path_ana)
@@ -79,7 +84,9 @@ namespace VoiceNET.Lib.WebAPI
                 ImageSource = image_path_ana,
             };
 
-            return ConsumeModel.Predict(SpeechDataset).Prediction;
+            return_label = ConsumeModel.Predict(SpeechDataset).Prediction;
+
+            return return_label;
         }
 
         }
